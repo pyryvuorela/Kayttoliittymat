@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         //id yhdistetään muuttujaan
         loginButton = (Button) findViewById(R.id.loginButtonID);
         userName = (EditText) findViewById(R.id.usernameID);
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                currentUser = userName.getText().toString();
             }
         });
-        password.setOnClickListener(new View.OnClickListener(){
+        password.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view){
                 adminPassword = password.getText().toString();
             }

@@ -9,13 +9,13 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label=""
+        android:icon="@drawable/zhomeicon"
+        android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label=""
+            android:label="zHome"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,15 +25,15 @@
         </activity>
         <activity
             android:name=".adminMainMenu"
-            android:label="@string/title_activity_admin_main_menu"
+            android:label=""
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".adminUserControl"
-            android:label="@string/title_activity_admin_user_control"
+            android:label=""
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".adminRoomControl"
-            android:label="@string/title_activity_admin_room_control"
+            android:label=""
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
