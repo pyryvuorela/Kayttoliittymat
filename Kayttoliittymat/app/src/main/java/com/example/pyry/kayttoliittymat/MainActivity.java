@@ -2,7 +2,6 @@ package com.example.pyry.kayttoliittymat;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -27,10 +26,13 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //id yhdistetään muuttujaan
-        loginButton = (Button) findViewById(R.id.loginButton);
+        loginButton = (Button) findViewById(R.id.loginButtonID);
+        userName = (EditText) findViewById(R.id.usernameID);
+        password = (EditText) findViewById(R.id.passwordID);
+
         loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                if(currentUser == "admin" && adminPassword == "admin") {
+                if(userName.getText().toString().equals("admin")&& password.getText().toString().equals("admin")) {
                     startActivity(new Intent(getApplicationContext(), Main2Activity.class));
                 }else{
                     Snackbar.make(view, "User not found!", Snackbar.LENGTH_SHORT)
@@ -38,13 +40,11 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        userName = (EditText) findViewById(R.id.userName);
         userName.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                currentUser = userName.getText().toString();
             }
         });
-        password = (EditText) findViewById(R.id.password);
         password.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 adminPassword = password.getText().toString();
