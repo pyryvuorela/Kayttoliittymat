@@ -16,4 +16,7 @@
         completions."
     </string>
     <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_admin_main_menu">adminMainMenu</string>
+    <string name="title_activity_admin_user_control">adminUserControl</string>
+    <string name="title_activity_admin_room_control">adminRoomControl</string>
 </resources>

@@ -24,8 +24,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Main2Activity"
-            android:label="@string/title_activity_main2"
+            android:name=".adminMainMenu"
+            android:label="@string/title_activity_admin_main_menu"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".adminUserControl"
+            android:label="@string/title_activity_admin_user_control"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".adminRoomControl"
+            android:label="@string/title_activity_admin_room_control"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
