@@ -23,7 +23,7 @@
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:drawableTint="#000000"
+        android:drawableTint="#3e3e3e"
         android:backgroundTint="#000000"
         android:textColor="#000000"
         android:textCursorDrawable="@drawable/custom_cursor"/>
@@ -40,7 +40,7 @@
         android:layout_marginBottom="24dp"
         android:textIsSelectable="false"
         android:backgroundTint="#000000"
-        android:drawableTint="#000000"
+        android:drawableTint="#3e3e3e"
         android:textColor="#000000"
         android:textCursorDrawable="@drawable/custom_cursor"/>
 
@@ -48,14 +48,16 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="zHomeController"
+        android:text="zHome"
+        android:fontFamily="@string/app_name"
         android:textAlignment="center"
-        android:textColor="#535353"
-        android:textSize="40dp"
+        android:textColor="#000000"
+        android:textSize="50dp"
         android:layout_marginTop="53dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textStyle="bold" />
 
 
     <Button
@@ -63,7 +65,7 @@
         android:layout_height="wrap_content"
         android:text="Login"
         android:id="@+id/loginButton"
-        android:background="#000000"
+        android:background="#3e3e3e"
         android:textColor="#ffffff"
         android:textSize="20dp"
         android:textAlignment="center"

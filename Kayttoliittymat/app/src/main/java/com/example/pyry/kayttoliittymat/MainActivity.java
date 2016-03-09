@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     Button loginButton;
     EditText password;
     EditText userName;
+    String currentUser;
+    String adminPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +28,26 @@ public class MainActivity extends AppCompatActivity {
 
         //id yhdistetään muuttujaan
         loginButton = (Button) findViewById(R.id.loginButton);
-        loginButton.setOnClickListener(new View.OnClickListener(){
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                if(currentUser == "admin" && adminPassword == "admin") {
+                    startActivity(new Intent(getApplicationContext(), Main2Activity.class));
+                }else{
+                    Snackbar.make(view, "User not found!", Snackbar.LENGTH_SHORT)
+                            .setAction("Action", null).show();
+                }
+            }
+        });
+        userName = (EditText) findViewById(R.id.userName);
+        userName.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                startActivity(new Intent(getApplicationContext(),Main2Activity.class));
+               currentUser = userName.getText().toString();
+            }
+        });
+        password = (EditText) findViewById(R.id.password);
+        password.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                adminPassword = password.getText().toString();
             }
         });
     }
