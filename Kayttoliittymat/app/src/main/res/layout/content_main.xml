@@ -52,7 +52,7 @@
         android:text="zHome"
         android:fontFamily="@string/app_name"
         android:textAlignment="center"
-        android:textColor="#424242"
+        android:textColor="#3e3e3e"
         android:textSize="70dp"
         android:layout_marginTop="53dp"
         android:layout_alignParentTop="true"
