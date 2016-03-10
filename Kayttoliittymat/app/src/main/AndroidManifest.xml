@@ -25,15 +25,15 @@
         </activity>
         <activity
             android:name=".adminMainMenu"
-            android:label="@string/title_activity_admin_main_menu"
+            android:label="Menu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".adminUserControl"
-            android:label="@string/title_activity_admin_user_control"
+            android:label="User control"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".adminRoomControl"
-            android:label="@string/title_activity_admin_room_control"
+            android:label="Room control"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".addUserNew"
