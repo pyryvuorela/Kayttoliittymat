@@ -36,10 +36,6 @@
             android:label="@string/title_activity_admin_room_control"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".modifyUserScroll"
-            android:label="@string/title_activity_modify_user_scroll"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".addUserNew"
             android:label="@string/title_activity_add_user_new"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -50,6 +46,10 @@
         <activity
             android:name=".modifyRoomScroll"
             android:label="@string/title_activity_modify_room_scroll"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".modifyUserScroll"
+            android:label="@string/title_activity_modify_user_scroll"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
