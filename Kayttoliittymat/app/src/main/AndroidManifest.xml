@@ -43,6 +43,14 @@
             android:name=".addUserNew"
             android:label="@string/title_activity_add_user_new"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".addRoomNew"
+            android:label="@string/title_activity_add_room_new"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".modifyRoomScroll"
+            android:label="@string/title_activity_modify_room_scroll"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
