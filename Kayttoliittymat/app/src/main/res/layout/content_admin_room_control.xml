@@ -21,7 +21,7 @@
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="250dp"
-                android:text="Add room"
+                android:text="Add house"
                 android:textColor="#ffffff"
                 android:textSize="40dp"
                 android:id="@+id/addRoomID"
@@ -34,7 +34,7 @@
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="250dp"
-                android:text="Modify room"
+                android:text="Modify house"
                 android:textColor="#ffffff"
                 android:textSize="40dp"
                 android:id="@+id/modifyRoomID"

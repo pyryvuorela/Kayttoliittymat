@@ -32,7 +32,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(userName.getText().toString().equals("admin")&& password.getText().toString().equals("admin")) {
                     startActivity(new Intent(getApplicationContext(), adminMainMenu.class));
-                }else{
+                }
+                if(userName.getText().toString().equals("asd")&& password.getText().toString().equals("asd")) {
+                    startActivity(new Intent(getApplicationContext(), userMainMenu.class));
+                }
+                else{
                     Snackbar.make(view, "User not found!", Snackbar.LENGTH_SHORT)
                             .setAction("Action", null).show();
                 }

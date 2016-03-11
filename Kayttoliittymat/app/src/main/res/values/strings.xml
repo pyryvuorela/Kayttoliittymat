@@ -112,4 +112,5 @@
     <string name="title_activity_add_user_new">addUserNew</string>
     <string name="title_activity_add_room_new">addRoomNew</string>
     <string name="title_activity_modify_room_scroll">modifyRoomScroll</string>
+    <string name="title_activity_user_main_menu">userMainMenu</string>
 </resources>

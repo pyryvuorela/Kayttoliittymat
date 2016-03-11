@@ -50,6 +50,10 @@
         <activity
             android:name=".modifyUserScroll"
             android:label="@string/title_activity_modify_user_scroll"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".userMainMenu"
+            android:label="@string/title_activity_user_main_menu"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
