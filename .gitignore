@@ -5,9 +5,11 @@ ehthumbs.db
 # Folder config file
 Desktop.ini
 
-# Few xml's (cant add gradle.xml)
+# Few xml's that are user specific? (cant add gradle.xml)
 encodings.xml
 #gradle.xml
+.idea/misc.xml
+.idea/encodings.xml
 
 # =========================
 # Operating System Files
