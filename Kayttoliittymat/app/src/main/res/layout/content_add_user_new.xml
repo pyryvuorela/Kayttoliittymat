@@ -57,4 +57,15 @@
         </LinearLayout>
     </ScrollView>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:id="@+id/buttonSave"
+        android:layout_marginTop="56dp"
+        android:layout_below="@+id/scrollView"
+        android:layout_centerHorizontal="true"
+        android:background="#212121"
+        android:textColor="#ffffff" />
+
 </RelativeLayout>
