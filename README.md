@@ -1,3 +1,3 @@
-# Kayttoliittymat
+# zHome
 
 Educational eHome control app
