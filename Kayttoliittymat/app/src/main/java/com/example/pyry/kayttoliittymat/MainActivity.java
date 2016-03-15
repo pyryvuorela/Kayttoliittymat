@@ -5,12 +5,11 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
+    UserDatabase userData;
     Button loginButton;
     EditText password;
     EditText userName;
@@ -21,12 +20,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        userData = new UserDatabase(this);
 
 
         //id yhdistetään muuttujaan
         loginButton = (Button) findViewById(R.id.loginButtonID);
-        userName = (EditText) findViewById(R.id.usernameID);
-        password = (EditText) findViewById(R.id.passwordID);
+        userName = (EditText) findViewById(R.id.addUsernameID);
+        password = (EditText) findViewById(R.id.addPasswordID);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {

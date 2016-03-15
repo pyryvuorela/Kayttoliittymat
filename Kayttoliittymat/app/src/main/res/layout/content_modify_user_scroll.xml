@@ -12,4 +12,34 @@
     tools:context="com.example.pyry.kayttoliittymat.modifyUserScroll"
     tools:showIn="@layout/activity_modify_user_scroll">
 
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/UsernamemodifyID"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="104dp"
+        android:textSize="30dp"
+        android:textAlignment="center"
+        android:hint="Username" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/UserPasswordModifyID"
+        android:layout_below="@+id/UsernamemodifyID"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="37dp"
+        android:textSize="30dp"
+        android:textAlignment="center"
+        android:hint="Password" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modify"
+        android:id="@+id/modifyUserSettingsButtonID"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="54dp"
+        android:layout_centerVertical="true" />
 </RelativeLayout>
