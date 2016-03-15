@@ -12,8 +12,8 @@ import android.widget.Toast;
 
 public class modifyUserScroll extends AppCompatActivity {
     UserDatabase userData;
-    Button modifyUsers;
-    EditText username, password;
+    Button modifyUsers, deleteUser;
+    EditText username, password, usernameDel;
 
 
 
@@ -26,7 +26,10 @@ public class modifyUserScroll extends AppCompatActivity {
         userData = new UserDatabase(this);
         username = (EditText) findViewById(R.id.UsernamemodifyID);
         password = (EditText) findViewById(R.id.UserPasswordModifyID);
+        usernameDel = (EditText) findViewById(R.id.UsernamedeleteID);
         modifyUsers = (Button) findViewById(R.id.modifyUserSettingsButtonID);
+        deleteUser = (Button) findViewById(R.id.modifyUserDeleteButtonID);
+
 
         modifyUsers.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -35,6 +38,15 @@ public class modifyUserScroll extends AppCompatActivity {
                     Toast.makeText(modifyUserScroll.this, "Data Updated", Toast.LENGTH_LONG).show();
                 else
                     Toast.makeText(modifyUserScroll.this, "Data not Updated", Toast.LENGTH_LONG).show();
+            }
+        });
+        deleteUser.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Integer isDeleted = userData.deleteData(username.getText().toString());
+                if(isDeleted > 0)
+                    Toast.makeText(modifyUserScroll.this, "Data Deleted", Toast.LENGTH_LONG).show();
+                else
+                    Toast.makeText(modifyUserScroll.this, "Data not Deleted", Toast.LENGTH_LONG).show();
             }
         });
     }

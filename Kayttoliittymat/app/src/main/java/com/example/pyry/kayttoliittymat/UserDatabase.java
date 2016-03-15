@@ -60,4 +60,8 @@ public class UserDatabase extends SQLiteOpenHelper {
         db.update(TABLE_NAME,contentValues, "USERNAME = ?",new String[] { username });
         return true;
     }
+    public Integer deleteData(String username){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_NAME,"USERNAME = ?",new String[] { username });
+    }
 }

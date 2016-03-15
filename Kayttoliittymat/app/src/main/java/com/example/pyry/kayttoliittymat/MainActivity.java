@@ -1,12 +1,14 @@
 package com.example.pyry.kayttoliittymat;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     UserDatabase userData;
@@ -30,15 +32,17 @@ public class MainActivity extends AppCompatActivity {
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                if(userName.getText().toString().equals("admin")&& password.getText().toString().equals("admin")) {
+                Cursor res = userData.getAllData();
+
+                if (userName.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
                     startActivity(new Intent(getApplicationContext(), adminMainMenu.class));
-                }
-                if(userName.getText().toString().equals("asd")&& password.getText().toString().equals("asd")) {
-                    startActivity(new Intent(getApplicationContext(), userMainMenu.class));
-                }
-                else{
-                    Snackbar.make(view, "User not found!", Snackbar.LENGTH_SHORT)
-                            .setAction("Action", null).show();
+                } else{
+                    while (res.moveToNext()) {
+                        if (res.getString(1).equals(userName.getText().toString()) && res.getString(2).equals(password.getText().toString())) {
+                            startActivity(new Intent(getApplicationContext(), userMainMenu.class));
+                            break;
+                        }
+                    }
                 }
             }
         });
