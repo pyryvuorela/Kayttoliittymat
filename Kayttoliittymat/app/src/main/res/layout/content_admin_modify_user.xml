@@ -8,9 +8,10 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="?attr/colorPrimary"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.pyry.kayttoliittymat.modifyUserScroll"
-    tools:showIn="@layout/activity_modify_user_scroll">
+    tools:context=".adminModifyUser"
+    tools:showIn="@layout/activity_admin_modify_user">
 
     <EditText
         android:layout_width="fill_parent"
@@ -19,7 +20,9 @@
         android:layout_marginTop="37dp"
         android:textSize="30dp"
         android:textAlignment="center"
+        android:textColor="#ffffff"
         android:hint="Username"
+        android:textColorHint="#ffffff"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />

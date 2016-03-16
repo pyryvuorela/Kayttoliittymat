@@ -23,12 +23,11 @@ public class adminRoomControl extends AppCompatActivity {
 
         addRoom.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), addRoomNew.class));
             }
         });
         modifyRoom.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), modifyRoomScroll.class));
+                startActivity(new Intent(getApplicationContext(), adminModifyRoom.class));
             }
         });
     }

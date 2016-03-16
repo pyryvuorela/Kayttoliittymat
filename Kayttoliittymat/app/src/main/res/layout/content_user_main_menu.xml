@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.pyry.kayttoliittymat.adminMainMenu"
-    android:background="#212121">
+    android:background="?attr/colorPrimary">
 
     <ScrollView
         android:layout_width="match_parent"

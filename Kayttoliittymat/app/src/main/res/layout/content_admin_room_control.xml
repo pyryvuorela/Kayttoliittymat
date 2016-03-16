@@ -6,17 +6,18 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.pyry.kayttoliittymat.adminRoomControl"
-    android:background="#9ccc65">
+    android:background="?attr/colorPrimary">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="?attr/colorPrimary">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#9ccc65">
+            android:background="?attr/colorPrimary">
 
             <Button
                 android:layout_width="fill_parent"
@@ -25,7 +26,7 @@
                 android:textColor="#ffffff"
                 android:textSize="40dp"
                 android:id="@+id/addRoomID"
-                android:backgroundTint="#424242"
+                android:background="?attr/colorPrimary"
                 android:layout_marginTop="60dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
@@ -38,7 +39,7 @@
                 android:textColor="#ffffff"
                 android:textSize="40dp"
                 android:id="@+id/modifyRoomID"
-                android:backgroundTint="#424242"
+                android:background="?attr/colorPrimary"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />

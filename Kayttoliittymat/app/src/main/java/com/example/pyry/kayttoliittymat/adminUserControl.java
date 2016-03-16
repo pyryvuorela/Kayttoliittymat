@@ -23,12 +23,12 @@ public class adminUserControl extends AppCompatActivity {
 
         addUser.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), addUserNew.class));
+                startActivity(new Intent(getApplicationContext(), adminAddUser.class));
             }
         });
         modifyUser.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), modifyUserScroll.class));
+                startActivity(new Intent(getApplicationContext(), adminModifyUser.class));
             }
         });
     }

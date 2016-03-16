@@ -3,8 +3,6 @@ package com.example.pyry.kayttoliittymat;
 import android.app.AlertDialog;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -12,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class addUserNew extends AppCompatActivity {
+public class adminAddUser extends AppCompatActivity {
     UserDatabase userData;
     EditText username;
     EditText password;
@@ -22,7 +20,7 @@ public class addUserNew extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_user_new);
+        setContentView(R.layout.activity_admin_add_user);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         userData = new UserDatabase(this);
         setSupportActionBar(toolbar);
@@ -37,9 +35,9 @@ public class addUserNew extends AppCompatActivity {
 
                  boolean isInserted = userData.insertData(username.getText().toString(), password.getText().toString(), null);
                   if(isInserted == true)
-                      Toast.makeText(addUserNew.this, "Data Inserted", Toast.LENGTH_LONG).show();
+                      Toast.makeText(adminAddUser.this, "Data Inserted", Toast.LENGTH_LONG).show();
                   else
-                      Toast.makeText(addUserNew.this, "Data not Inserted", Toast.LENGTH_LONG).show();
+                      Toast.makeText(adminAddUser.this, "Data not Inserted", Toast.LENGTH_LONG).show();
               }
         });
         viewAll.setOnClickListener(new View.OnClickListener() {

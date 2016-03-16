@@ -14,7 +14,6 @@ import java.util.ArrayList;
 public class UserDatabase extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "UserData.db";
     public static final String TABLE_NAME = "user_table";
-    public static final String COL_1 = "ID";
     public static final String COL_2 = "USERNAME";
     public static final String COL_3 = "PASSWORD";
     public static final String COL_4 = "HOUSE";
@@ -25,7 +24,7 @@ public class UserDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-            db.execSQL("create table " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, USERNAME TEXT, PASSWORD TEXT, HOUSE TEXT)");
+            db.execSQL("create table " + TABLE_NAME + " (ID INTEGER PRIMARY KEY, USERNAME TEXT, PASSWORD TEXT, HOUSE TEXT)");
     }
 
     @Override
