@@ -68,7 +68,7 @@
         android:layout_height="wrap_content"
         android:text="Login"
         android:id="@+id/loginButtonID"
-        android:background="#212121"
+        android:background="#039BE5"
         android:textColor="#ffffff"
         android:textSize="20dp"
         android:textAlignment="center"
