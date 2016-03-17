@@ -14,9 +14,9 @@ import java.util.ArrayList;
 public class UserDatabase extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "UserData.db";
     public static final String TABLE_NAME = "user_table";
-    public static final String COL_2 = "USERNAME";
-    public static final String COL_3 = "PASSWORD";
-    public static final String COL_4 = "HOUSE";
+    public static final String COL_1 = "USERNAME";
+    public static final String COL_2 = "PASSWORD";
+    public static final String COL_3 = "HOUSE";
 
     public UserDatabase(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -36,9 +36,9 @@ public class UserDatabase extends SQLiteOpenHelper {
     public boolean insertData(String username, String password, String house){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_2,username);
-        contentValues.put(COL_3,password);
-        contentValues.put(COL_4, house);
+        contentValues.put(COL_1,username);
+        contentValues.put(COL_2,password);
+        contentValues.put(COL_3, house);
         long result = db.insert(TABLE_NAME,null,contentValues);
         if (result == -1)
             return false;
@@ -53,9 +53,9 @@ public class UserDatabase extends SQLiteOpenHelper {
     public boolean updateData(String username, String password, String house){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_2,username);
-        contentValues.put(COL_3,password);
-        contentValues.put(COL_4, house);
+        contentValues.put(COL_1,username);
+        contentValues.put(COL_2,password);
+        contentValues.put(COL_3, house);
         db.update(TABLE_NAME,contentValues, "USERNAME = ?",new String[] { username });
         return true;
     }
