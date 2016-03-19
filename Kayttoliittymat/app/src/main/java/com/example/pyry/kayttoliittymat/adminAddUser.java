@@ -27,7 +27,7 @@ public class adminAddUser extends AppCompatActivity {
 
         username = (EditText) findViewById(R.id.addUsernameID);
         password = (EditText) findViewById(R.id.addPasswordID);
-        save = (Button) findViewById(R.id.addUserButtonID);
+        save = (Button) findViewById(R.id.addNewHouseButtonID);
         viewAll = (Button) findViewById(R.id.ViewAllID);
 
         save.setOnClickListener(new View.OnClickListener() {

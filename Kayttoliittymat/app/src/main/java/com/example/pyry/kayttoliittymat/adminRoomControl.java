@@ -30,6 +30,11 @@ public class adminRoomControl extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), adminModifyRoom.class));
             }
         });
+        addRoom.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), adminAddHouse.class));
+            }
+        });
     }
 
 }

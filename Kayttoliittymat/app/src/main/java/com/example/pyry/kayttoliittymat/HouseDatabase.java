@@ -14,8 +14,17 @@ public class HouseDatabase extends SQLiteOpenHelper {
     public static final String TABLE_NAME = "house_table";
     public static final String COL_1 = "HOUSENAME";
     public static final String COL_2 = "ROOM1";
-    public static final String COL_3 = "ROOM2";
-    public static final String COL_4 = "ROOM3";
+    public static final String COL_3 = "ROOM1LIGHT";
+    public static final String COL_4 = "ROOM1LOCK";
+    public static final String COL_5 = "ROOM1TEMP";
+    public static final String COL_6 = "ROOM2";
+    public static final String COL_7 = "ROOM2LIGHT";
+    public static final String COL_8 = "ROOM2LOCK";
+    public static final String COL_9 = "ROOM2TEMP";
+    public static final String COL_10 = "ROOM3";
+    public static final String COL_11 = "ROOM3LIGHT";
+    public static final String COL_12 = "ROOM3LOCK";
+    public static final String COL_13 = "ROOM3TEMP";
 
 
     public HouseDatabase(Context context) {
@@ -24,7 +33,7 @@ public class HouseDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table " + TABLE_NAME + " (HOUSENAME TEXT PRIMARY KEY, ROOM1 TEXT, ROOM2 TEXT, ROOM3 TEXT)");
+        db.execSQL("create table " + TABLE_NAME + " (HOUSENAME TEXT PRIMARY KEY, ROOM1 BOOLEAN, ROOM1LIGHT BOOLEAN, ROOM1LOCK BOOLEAN, ROOM1TEMP BOOLEAN, ROOM2 BOOLEAN, ROOM2LIGHT BOOLEAN, ROOM2LOCK BOOLEAN, ROOM2TEMP BOOLEAN, ROOM3 BOOLEAN, ROOM3LIGHT BOOLEAN, ROOM3LOCK BOOLEAN, ROOM3TEMP BOOLEAN)");
 
     }
 
@@ -34,13 +43,22 @@ public class HouseDatabase extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertData(String housename,String room1, String room2, String room3){
+    public boolean insertData(String housename,boolean room1, boolean room1light, boolean room1lock, boolean room1temp,boolean room2, boolean room2light, boolean room2lock, boolean room2temp,boolean room3, boolean room3light, boolean room3lock, boolean room3temp){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_1,housename);
         contentValues.put(COL_2,room1);
-        contentValues.put(COL_3,room2);
-        contentValues.put(COL_4,room3);
+        contentValues.put(COL_3,room1light);
+        contentValues.put(COL_4,room1lock);
+        contentValues.put(COL_5,room1temp);
+        contentValues.put(COL_6,room2);
+        contentValues.put(COL_7,room2light);
+        contentValues.put(COL_8,room2lock);
+        contentValues.put(COL_9,room2temp);
+        contentValues.put(COL_10,room3);
+        contentValues.put(COL_11,room3light);
+        contentValues.put(COL_12,room3lock);
+        contentValues.put(COL_13,room3temp);
         long result = db.insert(TABLE_NAME,null,contentValues);
         if (result == -1)
             return false;
@@ -52,12 +70,22 @@ public class HouseDatabase extends SQLiteOpenHelper {
         Cursor res = db.rawQuery("select * from "+TABLE_NAME,null);
         return res;
     }
-    public boolean updateData(String housename,String room1, String room2, String room3){
+    public boolean updateData(String housename,boolean room1, boolean room1light, boolean room1lock, boolean room1temp,boolean room2, boolean room2light, boolean room2lock, boolean room2temp,boolean room3, boolean room3light, boolean room3lock, boolean room3temp){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_2, room1);
-        contentValues.put(COL_3, room2);
-        contentValues.put(COL_4, room3);
+        contentValues.put(COL_1,housename);
+        contentValues.put(COL_2,room1);
+        contentValues.put(COL_3,room1light);
+        contentValues.put(COL_4,room1lock);
+        contentValues.put(COL_5,room1temp);
+        contentValues.put(COL_6,room2);
+        contentValues.put(COL_7,room2light);
+        contentValues.put(COL_8,room2lock);
+        contentValues.put(COL_9,room2temp);
+        contentValues.put(COL_10,room3);
+        contentValues.put(COL_11,room3light);
+        contentValues.put(COL_12,room3lock);
+        contentValues.put(COL_13,room3temp);
         db.update(TABLE_NAME, contentValues, "HOUSENAME = ?", new String[]{housename});
         return true;
     }
