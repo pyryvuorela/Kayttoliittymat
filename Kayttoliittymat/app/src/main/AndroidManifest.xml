@@ -54,6 +54,10 @@
         <activity
             android:name=".adminAddHouse"
             android:label="@string/title_activity_admin_add_house"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".adminHouseControl"
+            android:label="@string/title_activity_admin_house_control"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

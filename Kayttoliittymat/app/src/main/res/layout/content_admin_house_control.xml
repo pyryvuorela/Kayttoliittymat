@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="?attr/colorPrimary"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.pyry.kayttoliittymat.adminHouseControl"
+    tools:showIn="@layout/activity_admin_house_control">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Modify house"
+        android:textColor="#039BE5"
+        android:textSize="15dp"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/modifyUserSettingsButtonID"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="45dp" />
+
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Room1"
+        android:textColor="#ffffff"
+        android:buttonTint="#ffffff"
+        android:id="@+id/Room1checkBox"
+        android:checked="false"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="25dp" />
+
+    <RadioButton
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Ligth"
+        android:buttonTint="#ffffff"
+        android:textColor="#ffffff"
+        android:id="@+id/Room1Ligth"
+        android:layout_below="@+id/Room1checkBox"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:checked="false" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lock"
+        android:buttonTint="#ffffff"
+        android:textColor="#ffffff"
+        android:id="@+id/Room1Lock"
+        android:checked="false"
+        android:layout_alignTop="@+id/Room1Ligth"
+        android:layout_centerHorizontal="true" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Temp"
+        android:buttonTint="#ffffff"
+        android:textColor="#ffffff"
+        android:id="@+id/Room1Temp"
+        android:checked="false"
+        android:layout_alignTop="@+id/Room1Ligth"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Room2"
+        android:textColor="#ffffff"
+        android:buttonTint="#ffffff"
+        android:id="@+id/Room2checkBox"
+        android:checked="false"
+        android:layout_below="@+id/Room1Ligth"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <RadioButton
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Ligth"
+        android:buttonTint="#ffffff"
+        android:textColor="#ffffff"
+        android:id="@+id/Room2Ligth"
+        android:layout_below="@+id/Room2checkBox"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:checked="false" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lock"
+        android:buttonTint="#ffffff"
+        android:textColor="#ffffff"
+        android:id="@+id/Room2Lock"
+        android:layout_alignTop="@+id/Room2Ligth"
+        android:layout_alignLeft="@+id/Room1Lock"
+        android:layout_alignStart="@+id/Room1Lock"
+        android:checked="false" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Temp"
+        android:buttonTint="#ffffff"
+        android:textColor="#ffffff"
+        android:id="@+id/Room2Temp"
+        android:layout_alignTop="@+id/Room2Lock"
+        android:layout_alignLeft="@+id/Room1Temp"
+        android:layout_alignStart="@+id/Room1Temp"
+        android:checked="false" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Room3"
+        android:textColor="#ffffff"
+        android:buttonTint="#ffffff"
+        android:id="@+id/Room3checkBox"
+        android:checked="false"
+        android:layout_below="@+id/Room2Ligth"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <RadioButton
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Ligth"
+        android:buttonTint="#ffffff"
+        android:textColor="#ffffff"
+        android:id="@+id/Room3Ligth"
+        android:layout_below="@+id/Room3checkBox"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:checked="false" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lock"
+        android:buttonTint="#ffffff"
+        android:textColor="#ffffff"
+        android:id="@+id/Room3Lock"
+        android:layout_alignTop="@+id/Room3Ligth"
+        android:layout_alignLeft="@+id/Room2Lock"
+        android:layout_alignStart="@+id/Room2Lock"
+        android:checked="false" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Temp"
+        android:buttonTint="#ffffff"
+        android:textColor="#ffffff"
+        android:id="@+id/Room3Temp"
+        android:layout_alignTop="@+id/Room3Lock"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:checked="false" />
+
+    <Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Modify House"
+    android:id="@+id/modifyHousefinalButtonID"
+    android:background="#039BE5"
+    android:textColor="#ffffff"
+    android:layout_marginTop="54dp"
+    android:layout_below="@+id/Room3Ligth"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete House"
+        android:id="@+id/deleteHouseButtonID"
+        android:background="#c62828"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/modifyHousefinalButtonID"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="33dp" />
+
+
+
+</RelativeLayout>

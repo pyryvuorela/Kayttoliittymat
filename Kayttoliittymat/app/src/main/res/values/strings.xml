@@ -115,4 +115,5 @@
     <string name="title_activity_modify_room_scroll">modifyRoomScroll</string>
     <string name="title_activity_user_main_menu">userMainMenu</string>
     <string name="title_activity_admin_add_house">adminAddHouse</string>
+    <string name="title_activity_admin_house_control">adminHouseControl</string>
 </resources>
