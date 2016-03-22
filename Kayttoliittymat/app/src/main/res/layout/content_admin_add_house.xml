@@ -38,146 +38,146 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="58dp"/>
 
-    <CheckBox
+    <Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Room1"
         android:textColor="#ffffff"
         android:buttonTint="#ffffff"
-        android:id="@+id/Room1checkBox"
+        android:id="@+id/room1AddSwitch"
         android:layout_marginTop="43dp"
         android:layout_below="@+id/addHousenameID"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:checked="false" />
 
-    <RadioButton
+    <CheckBox
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="Ligth"
         android:buttonTint="#ffffff"
         android:textColor="#ffffff"
-        android:id="@+id/Room1Ligth"
-        android:layout_below="@+id/Room1checkBox"
+        android:id="@+id/Room1LigthAdd"
+        android:layout_below="@+id/room1AddSwitch"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:checked="false" />
 
-    <RadioButton
+    <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lock"
         android:buttonTint="#ffffff"
         android:textColor="#ffffff"
-        android:id="@+id/Room1Lock"
-        android:layout_alignTop="@+id/Room1Ligth"
+        android:id="@+id/Room1LockAdd"
+        android:layout_alignTop="@+id/Room1LigthAdd"
         android:layout_centerHorizontal="true"
         android:checked="false" />
 
-    <RadioButton
+    <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Temp"
         android:buttonTint="#ffffff"
         android:textColor="#ffffff"
-        android:id="@+id/Room1Temp"
-        android:layout_alignTop="@+id/Room1Lock"
+        android:id="@+id/Room1TempAdd"
+        android:layout_alignTop="@+id/Room1LockAdd"
         android:layout_alignRight="@+id/addHousenameID"
         android:layout_alignEnd="@+id/addHousenameID"
         android:checked="false" />
 
-    <CheckBox
+    <Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Room2"
         android:textColor="#ffffff"
         android:buttonTint="#ffffff"
-        android:id="@+id/Room2checkBox"
+        android:id="@+id/room2AddSwitch"
         android:checked="false"
-        android:layout_below="@+id/Room1Ligth"
+        android:layout_below="@+id/Room1LigthAdd"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <RadioButton
+    <CheckBox
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="Ligth"
         android:buttonTint="#ffffff"
         android:textColor="#ffffff"
-        android:id="@+id/Room2Ligth"
-        android:layout_below="@+id/Room2checkBox"
+        android:id="@+id/Room2LigthAdd"
+        android:layout_below="@+id/room2AddSwitch"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:checked="false" />
-
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lock"
-        android:buttonTint="#ffffff"
-        android:textColor="#ffffff"
-        android:id="@+id/Room2Lock"
-        android:layout_alignTop="@+id/Room2Ligth"
-        android:layout_alignLeft="@+id/Room1Lock"
-        android:layout_alignStart="@+id/Room1Lock"
-        android:checked="false" />
-
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Temp"
-        android:buttonTint="#ffffff"
-        android:textColor="#ffffff"
-        android:id="@+id/Room2Temp"
-        android:layout_alignTop="@+id/Room2Lock"
-        android:layout_alignLeft="@+id/Room1Temp"
-        android:layout_alignStart="@+id/Room1Temp"
         android:checked="false" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Room3"
-        android:textColor="#ffffff"
-        android:buttonTint="#ffffff"
-        android:id="@+id/Room3checkBox"
-        android:checked="false"
-        android:layout_below="@+id/Room2Ligth"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <RadioButton
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="Ligth"
-        android:buttonTint="#ffffff"
-        android:textColor="#ffffff"
-        android:id="@+id/Room3Ligth"
-        android:layout_below="@+id/Room3checkBox"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:checked="false" />
-
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="Lock"
         android:buttonTint="#ffffff"
         android:textColor="#ffffff"
-        android:id="@+id/Room3Lock"
-        android:layout_alignTop="@+id/Room3Ligth"
-        android:layout_alignLeft="@+id/Room2Lock"
-        android:layout_alignStart="@+id/Room2Lock"
+        android:id="@+id/Room2LockAdd"
+        android:layout_alignTop="@+id/Room2LigthAdd"
+        android:layout_alignLeft="@+id/Room1LockAdd"
+        android:layout_alignStart="@+id/Room1LockAdd"
         android:checked="false" />
 
-    <RadioButton
+    <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Temp"
         android:buttonTint="#ffffff"
         android:textColor="#ffffff"
-        android:id="@+id/Room3Temp"
-        android:layout_alignTop="@+id/Room3Lock"
+        android:id="@+id/Room2TempAdd"
+        android:layout_alignTop="@+id/Room2LockAdd"
+        android:layout_alignLeft="@+id/Room1TempAdd"
+        android:layout_alignStart="@+id/Room1TempAdd"
+        android:checked="false" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Room3"
+        android:textColor="#ffffff"
+        android:buttonTint="#ffffff"
+        android:id="@+id/room3AddSwitch"
+        android:checked="false"
+        android:layout_below="@+id/Room2LigthAdd"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <CheckBox
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Ligth"
+        android:buttonTint="#ffffff"
+        android:textColor="#ffffff"
+        android:id="@+id/Room3LigthAdd"
+        android:layout_below="@+id/room3AddSwitch"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:checked="false" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lock"
+        android:buttonTint="#ffffff"
+        android:textColor="#ffffff"
+        android:id="@+id/Room3LockAdd"
+        android:layout_alignTop="@+id/Room3LigthAdd"
+        android:layout_alignLeft="@+id/Room2LockAdd"
+        android:layout_alignStart="@+id/Room2LockAdd"
+        android:checked="false" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Temp"
+        android:buttonTint="#ffffff"
+        android:textColor="#ffffff"
+        android:id="@+id/Room3TempAdd"
+        android:layout_alignTop="@+id/Room3LockAdd"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:checked="false" />
@@ -190,7 +190,7 @@
     android:background="#039BE5"
     android:textColor="#ffffff"
     android:layout_marginTop="54dp"
-    android:layout_below="@+id/Room3Ligth"
+    android:layout_below="@+id/Room3LigthAdd"
     android:layout_alignParentLeft="true"
     android:layout_alignParentStart="true" />
 

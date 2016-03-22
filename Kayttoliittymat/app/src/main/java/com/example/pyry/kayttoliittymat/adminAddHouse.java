@@ -3,15 +3,13 @@ package com.example.pyry.kayttoliittymat;
 import android.app.AlertDialog;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioButton;
+import android.widget.Switch;
 import android.widget.Toast;
 
 public class adminAddHouse extends AppCompatActivity {
@@ -19,18 +17,18 @@ public class adminAddHouse extends AppCompatActivity {
 
     Button addHouse;
     EditText houseName;
-    CheckBox room1;
-    RadioButton room1Light;
-    RadioButton room1Lock;
-    RadioButton room1Temp;
-    CheckBox room2;
-    RadioButton room2Light;
-    RadioButton room2Lock;
-    RadioButton room2Temp;
-    CheckBox room3;
-    RadioButton room3Light;
-    RadioButton room3Lock;
-    RadioButton room3Temp;
+    Switch room1;
+    CheckBox room1Light;
+    CheckBox room1Lock;
+    CheckBox room1Temp;
+    Switch room2;
+    CheckBox room2Light;
+    CheckBox room2Lock;
+    CheckBox room2Temp;
+    Switch room3;
+    CheckBox room3Light;
+    CheckBox room3Lock;
+    CheckBox room3Temp;
 
     Button viewAll;
 
@@ -44,18 +42,18 @@ public class adminAddHouse extends AppCompatActivity {
         houseData = new HouseDatabase(this);
         addHouse = (Button) findViewById(R.id.addNewHouseButtonID);
         houseName = (EditText) findViewById(R.id.addHousenameID);
-        room1 = (CheckBox) findViewById(R.id.Room1checkBox);
-        room2 = (CheckBox) findViewById(R.id.Room2checkBox);
-        room3 = (CheckBox) findViewById(R.id.Room3checkBox);
-        room1Light = (RadioButton) findViewById(R.id.Room1Ligth);
-        room2Light = (RadioButton) findViewById(R.id.Room2Ligth);
-        room3Light = (RadioButton) findViewById(R.id.Room3Ligth);
-        room1Lock = (RadioButton) findViewById(R.id.Room1Lock);
-        room2Lock = (RadioButton) findViewById(R.id.Room2Lock);
-        room3Lock = (RadioButton) findViewById(R.id.Room3Lock);
-        room1Temp = (RadioButton) findViewById(R.id.Room1Temp);
-        room2Temp = (RadioButton) findViewById(R.id.Room2Temp);
-        room3Temp = (RadioButton) findViewById(R.id.Room3Temp);
+        room1 = (Switch) findViewById(R.id.room1AddSwitch);
+        room2 = (Switch) findViewById(R.id.room2AddSwitch);
+        room3 = (Switch) findViewById(R.id.room3AddSwitch);
+        room1Light = (CheckBox) findViewById(R.id.Room1LigthAdd);
+        room2Light = (CheckBox) findViewById(R.id.Room2LigthAdd);
+        room3Light = (CheckBox) findViewById(R.id.Room3LigthAdd);
+        room1Lock = (CheckBox) findViewById(R.id.Room1LockAdd);
+        room2Lock = (CheckBox) findViewById(R.id.Room2LockAdd);
+        room3Lock = (CheckBox) findViewById(R.id.Room3LockAdd);
+        room1Temp = (CheckBox) findViewById(R.id.Room1TempAdd);
+        room2Temp = (CheckBox) findViewById(R.id.Room2Temp);
+        room3Temp = (CheckBox) findViewById(R.id.Room3Temp);
 
         viewAll = (Button) findViewById(R.id.addNewHouseViewAllButtonID);
 

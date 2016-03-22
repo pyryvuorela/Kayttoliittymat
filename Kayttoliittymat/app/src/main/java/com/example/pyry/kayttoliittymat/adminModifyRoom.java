@@ -3,8 +3,6 @@ package com.example.pyry.kayttoliittymat;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -24,14 +22,17 @@ public class adminModifyRoom extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        houseDatabase = new HouseDatabase(this);
         modifyHouse = (Button) findViewById(R.id.modifyHouseSelectButtonID);
+        selectHouse = (EditText) findViewById(R.id.modifyHouseSelectNameID);
+
 
         modifyHouse.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Cursor res = houseDatabase.getAllData();
                 boolean found = false;
                 while(res.moveToNext()){
-                    if(selectHouse.getText().toString().equals(res.getString(0))){
+                    if(res.getString(0).equals(selectHouse.getText().toString())){
                         startActivity(new Intent(getApplicationContext(), adminHouseControl.class));
                         found = true;
                     }

@@ -16,6 +16,7 @@ import android.view.Menu;
 public class adminMainMenu extends AppCompatActivity {
     Button userControl;
     Button roomControl;
+    Button logOut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,7 @@ public class adminMainMenu extends AppCompatActivity {
 
         userControl = (Button) findViewById(R.id.usercontrolID);
         roomControl = (Button) findViewById(R.id.roomcontrolID);
+        logOut = (Button) findViewById(R.id.logoutAdminID);
 
         userControl.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -40,6 +42,11 @@ public class adminMainMenu extends AppCompatActivity {
         roomControl.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), adminRoomControl.class));
+            }
+        });
+        logOut.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
         });
 
