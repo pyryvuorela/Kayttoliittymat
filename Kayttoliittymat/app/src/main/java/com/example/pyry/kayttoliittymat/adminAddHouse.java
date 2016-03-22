@@ -52,8 +52,8 @@ public class adminAddHouse extends AppCompatActivity {
         room2Lock = (CheckBox) findViewById(R.id.Room2LockAdd);
         room3Lock = (CheckBox) findViewById(R.id.Room3LockAdd);
         room1Temp = (CheckBox) findViewById(R.id.Room1TempAdd);
-        room2Temp = (CheckBox) findViewById(R.id.Room2Temp);
-        room3Temp = (CheckBox) findViewById(R.id.Room3Temp);
+        room2Temp = (CheckBox) findViewById(R.id.Room2TempAdd);
+        room3Temp = (CheckBox) findViewById(R.id.Room3TempAdd);
 
         viewAll = (Button) findViewById(R.id.addNewHouseViewAllButtonID);
 
