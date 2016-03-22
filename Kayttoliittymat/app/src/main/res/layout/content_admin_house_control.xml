@@ -48,7 +48,7 @@
         android:buttonTint="#ffffff"
         android:textColor="#ffffff"
         android:id="@+id/Room1LigthModi"
-        android:layout_below="@+id/room1AddSwitch"
+        android:layout_below="@+id/room1ModiSwitch"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:checked="false" />
@@ -61,7 +61,7 @@
         android:textColor="#ffffff"
         android:id="@+id/Room1LockModi"
         android:checked="false"
-        android:layout_alignTop="@+id/Room1LigthAdd"
+        android:layout_below="@+id/room1ModiSwitch"
         android:layout_centerHorizontal="true" />
 
     <CheckBox
@@ -72,9 +72,9 @@
         android:textColor="#ffffff"
         android:id="@+id/Room1TempModi"
         android:checked="false"
-        android:layout_alignTop="@+id/Room1LigthAdd"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignTop="@+id/Room1LockModi"
+        android:layout_alignRight="@+id/modifyHousefinalButtonID"
+        android:layout_alignEnd="@+id/modifyHousefinalButtonID" />
 
     <Switch
         android:layout_width="wrap_content"
@@ -84,7 +84,7 @@
         android:buttonTint="#ffffff"
         android:id="@+id/room2ModiSwitch"
         android:checked="false"
-        android:layout_below="@+id/Room1LigthAdd"
+        android:layout_above="@+id/Room2LigthModi"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -94,11 +94,11 @@
         android:text="Ligth"
         android:buttonTint="#ffffff"
         android:textColor="#ffffff"
-        android:id="@+id/Room2LigthAdd"
-        android:layout_below="@+id/room2AddSwitch"
+        android:id="@+id/Room2LigthModi"
+        android:checked="false"
+        android:layout_alignTop="@+id/Room2LockModi"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:checked="false" />
+        android:layout_alignParentStart="true" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -107,10 +107,10 @@
         android:buttonTint="#ffffff"
         android:textColor="#ffffff"
         android:id="@+id/Room2LockModi"
-        android:layout_alignTop="@+id/Room2LigthAdd"
-        android:layout_alignLeft="@+id/Room1LockAdd"
-        android:layout_alignStart="@+id/Room1LockAdd"
-        android:checked="false" />
+        android:checked="false"
+        android:layout_alignTop="@+id/Room2TempModi"
+        android:layout_alignLeft="@+id/Room3LockModi"
+        android:layout_alignStart="@+id/Room3LockModi" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -119,10 +119,11 @@
         android:buttonTint="#ffffff"
         android:textColor="#ffffff"
         android:id="@+id/Room2TempModi"
-        android:layout_alignTop="@+id/Room2LockAdd"
-        android:layout_alignLeft="@+id/Room1TempAdd"
-        android:layout_alignStart="@+id/Room1TempAdd"
-        android:checked="false" />
+        android:checked="false"
+        android:layout_above="@+id/room3ModiSwitch"
+        android:layout_alignRight="@+id/modifyHousefinalButtonID"
+        android:layout_alignEnd="@+id/modifyHousefinalButtonID"
+        android:layout_marginBottom="41dp" />
 
     <Switch
         android:layout_width="wrap_content"
@@ -132,7 +133,7 @@
         android:buttonTint="#ffffff"
         android:id="@+id/room3ModiSwitch"
         android:checked="false"
-        android:layout_below="@+id/Room2LigthAdd"
+        android:layout_above="@+id/Room3LigthModi"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -142,11 +143,11 @@
         android:text="Ligth"
         android:buttonTint="#ffffff"
         android:textColor="#ffffff"
-        android:id="@+id/Room3LigthAdd"
-        android:layout_below="@+id/room3AddSwitch"
+        android:id="@+id/Room3LigthModi"
+        android:checked="false"
+        android:layout_alignTop="@+id/Room3LockModi"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:checked="false" />
+        android:layout_alignParentStart="true" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -154,11 +155,11 @@
         android:text="Lock"
         android:buttonTint="#ffffff"
         android:textColor="#ffffff"
-        android:id="@+id/Room3LockAdd"
-        android:layout_alignTop="@+id/Room3LigthAdd"
-        android:layout_alignLeft="@+id/Room2LockAdd"
-        android:layout_alignStart="@+id/Room2LockAdd"
-        android:checked="false" />
+        android:id="@+id/Room3LockModi"
+        android:checked="false"
+        android:layout_alignTop="@+id/Room3TempModi"
+        android:layout_alignLeft="@+id/Room1LockModi"
+        android:layout_alignStart="@+id/Room1LockModi" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -167,10 +168,11 @@
         android:buttonTint="#ffffff"
         android:textColor="#ffffff"
         android:id="@+id/Room3TempModi"
-        android:layout_alignTop="@+id/Room3LockAdd"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:checked="false" />
+        android:checked="false"
+        android:layout_above="@+id/modifyHousefinalButtonID"
+        android:layout_alignRight="@+id/modifyHousefinalButtonID"
+        android:layout_alignEnd="@+id/modifyHousefinalButtonID"
+        android:layout_marginBottom="23dp" />
 
     <Button
     android:layout_width="match_parent"
@@ -179,10 +181,10 @@
     android:id="@+id/modifyHousefinalButtonID"
     android:background="#039BE5"
     android:textColor="#ffffff"
-    android:layout_marginTop="54dp"
-    android:layout_below="@+id/Room3LigthAdd"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true" />
+        android:layout_above="@+id/deleteHouseButtonID"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="26dp" />
 
     <Button
         android:layout_width="match_parent"
@@ -191,10 +193,10 @@
         android:id="@+id/deleteHouseButtonID"
         android:background="#c62828"
         android:textColor="#ffffff"
-        android:layout_below="@+id/modifyHousefinalButtonID"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="33dp" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="48dp" />
 
 
 
