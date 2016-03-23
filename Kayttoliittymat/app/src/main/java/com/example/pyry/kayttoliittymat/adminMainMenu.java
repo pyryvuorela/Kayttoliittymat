@@ -28,7 +28,6 @@ public class adminMainMenu extends AppCompatActivity {
         setSupportActionBar(toolbar);
         //yritettiin lisata back buttonia, ehka tarpeellisia joskus
         //getSupportActionBar().setDisplayShowHomeEnabled(true);
-        //getSupportActionBar().setHomeButtonEnabled(true);
 
         userControl = (Button) findViewById(R.id.usercontrolID);
         roomControl = (Button) findViewById(R.id.roomcontrolID);

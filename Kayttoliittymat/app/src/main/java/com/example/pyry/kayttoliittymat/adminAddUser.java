@@ -1,11 +1,13 @@
 package com.example.pyry.kayttoliittymat;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class adminAddUser extends AppCompatActivity {
+    ArrayList<String> usersSelectedHouses;
     UserDatabase userData;
     HouseDatabase houseDatabase;
     EditText username;
@@ -33,6 +36,7 @@ public class adminAddUser extends AppCompatActivity {
 
         userData = new UserDatabase(this);
         houseDatabase = new HouseDatabase(this);
+        usersSelectedHouses = new ArrayList<String>();
 
         username = (EditText) findViewById(R.id.addUsernameID);
         password = (EditText) findViewById(R.id.addPasswordID);
@@ -52,10 +56,18 @@ public class adminAddUser extends AppCompatActivity {
         ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, R.layout.custom_listview, allUsers);
         listView.setAdapter(listAdapter);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String house = String.valueOf(parent.getItemAtPosition(position));
+                usersSelectedHouses.add(house);
+                Toast.makeText(adminAddUser.this, "House selected", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         save.setOnClickListener(new View.OnClickListener() {
               public void onClick(View view) {
-
-                 boolean isInserted = userData.insertData(username.getText().toString(), password.getText().toString(), null, null);
+                 boolean isInserted = userData.insertData(username.getText().toString(), password.getText().toString(), usersSelectedHouses.get(0));
                   if(isInserted == true)
                       Toast.makeText(adminAddUser.this, "Data Inserted", Toast.LENGTH_LONG).show();
                   else
@@ -64,19 +76,19 @@ public class adminAddUser extends AppCompatActivity {
         });
         viewAll.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-
-                Cursor res = userData.getAllData();
-                if(res.getCount() == 0){
+                Cursor reso = userData.getAllData();
+                if(reso.getCount() == 0){
                     showMessage("Error", "Nothing found");
                     return;
                 }
                 StringBuffer buffer = new StringBuffer();
 
-                while(res.moveToNext()){
-                    buffer.append("Id :" + res.getString(0)+ "\n");
-                    buffer.append("Username :" + res.getString(1)+ "\n");
-                    buffer.append("Password :" + res.getString(2)+ "\n");
-                    buffer.append("House :" + res.getString(3)+ "\n\n");
+                while(reso.moveToNext()){
+                    buffer.append("Id :" + reso.getString(0)+ "\n");
+                    buffer.append("Username :" + reso.getString(1)+ "\n");
+                    buffer.append("Password :" + reso.getString(2)+ "\n");
+                    buffer.append("House :" + reso.getString(3)+ "\n\n");
+
                 }
                 showMessage("Data", buffer.toString());
             }

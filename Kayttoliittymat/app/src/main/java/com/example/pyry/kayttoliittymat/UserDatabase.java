@@ -16,8 +16,7 @@ public class UserDatabase extends SQLiteOpenHelper {
     public static final String TABLE_NAME = "user_table";
     public static final String COL_1 = "USERNAME";
     public static final String COL_2 = "PASSWORD";
-    public static final String COL_3 = "MAINHOUSE";
-    public static final String COL_4 = "SECHOUSE";
+    public static final String COL_3 = "HOUSE";
 
 
     public UserDatabase(Context context) {
@@ -26,7 +25,7 @@ public class UserDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-            db.execSQL("create table " + TABLE_NAME + " (ID INTEGER PRIMARY KEY, USERNAME TEXT, PASSWORD TEXT, MAINHOUSE TEXT, SECHOUSE TEXT)");
+            db.execSQL("create table " + TABLE_NAME + " (ID INTEGER PRIMARY KEY, USERNAME TEXT, PASSWORD TEXT, HOUSE TEXT)");
     }
 
     @Override
@@ -35,13 +34,12 @@ public class UserDatabase extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertData(String username, String password, String mainhouse, String sechouse){
+    public boolean insertData(String username, String password, String house){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_1,username);
         contentValues.put(COL_2,password);
-        contentValues.put(COL_3, mainhouse);
-        contentValues.put(COL_3, sechouse);
+        contentValues.put(COL_3, house);
         long result = db.insert(TABLE_NAME,null,contentValues);
         if (result == -1)
             return false;
@@ -53,14 +51,13 @@ public class UserDatabase extends SQLiteOpenHelper {
         Cursor res = db.rawQuery("select * from "+TABLE_NAME,null);
         return res;
     }
-    public boolean updateData(String username, String password, String mainhouse, String sechouse){
+    public boolean updateData(String oldUsername, String username, String password, String house){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_1,username);
         contentValues.put(COL_2,password);
-        contentValues.put(COL_3, mainhouse);
-        contentValues.put(COL_3, sechouse);
-        db.update(TABLE_NAME,contentValues, "USERNAME = ?",new String[] { username });
+        contentValues.put(COL_3, house);
+        db.update(TABLE_NAME,contentValues, "USERNAME = ?",new String[] { oldUsername });
         return true;
     }
     public Integer deleteData(String username){
