@@ -8,44 +8,23 @@
     tools:context="com.example.pyry.kayttoliittymat.adminRoomControl"
     android:background="?attr/colorPrimary">
 
-    <ScrollView
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:textAlignment="center"
+        android:text="HOUSE CONTROL"
+        android:id="@+id/textView3"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#039BE5"
+        android:textSize="30dp"/>
+
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/colorPrimary">
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="?attr/colorPrimary">
-
-            <Button
-                android:layout_width="fill_parent"
-                android:layout_height="250dp"
-                android:text="Add house"
-                android:textColor="#ffffff"
-                android:textSize="40dp"
-                android:id="@+id/addRoomID"
-                android:background="?attr/colorPrimary"
-                android:layout_marginTop="60dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
-
-            <Button
-                android:layout_width="fill_parent"
-                android:layout_height="250dp"
-                android:text="Modify house"
-                android:textColor="#ffffff"
-                android:textSize="40dp"
-                android:id="@+id/modifyRoomID"
-                android:background="?attr/colorPrimary"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
-
-
-        </LinearLayout>
-    </ScrollView>
+        android:layout_marginTop="100dp"
+        android:textAlignment="center" />
 
 </RelativeLayout>
