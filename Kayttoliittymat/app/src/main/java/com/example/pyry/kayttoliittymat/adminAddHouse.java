@@ -1,10 +1,12 @@
 package com.example.pyry.kayttoliittymat;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -38,6 +40,8 @@ public class adminAddHouse extends AppCompatActivity {
         setContentView(R.layout.activity_admin_add_house);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         houseData = new HouseDatabase(this);
         addHouse = (Button) findViewById(R.id.addNewHouseButtonID);
@@ -61,9 +65,10 @@ public class adminAddHouse extends AppCompatActivity {
             public void onClick(View view) {
 
                 boolean isInserted = houseData.insertData(houseName.getText().toString(),room1.isChecked(),room1Light.isChecked(),room1Lock.isChecked(),room1Temp.isChecked(),room2.isChecked(),room2Light.isChecked(),room2Lock.isChecked(),room2Temp.isChecked(),room3.isChecked(),room3Light.isChecked(),room3Lock.isChecked(),room3Temp.isChecked());
-                if(isInserted == true)
+                if(isInserted == true) {
                     Toast.makeText(adminAddHouse.this, "Data Inserted", Toast.LENGTH_LONG).show();
-                else
+                    startActivity(new Intent(getApplicationContext(), adminRoomControl.class));
+                }else
                     Toast.makeText(adminAddHouse.this, "Data not Inserted", Toast.LENGTH_LONG).show();
             }
         });
@@ -107,6 +112,15 @@ public class adminAddHouse extends AppCompatActivity {
         builder.setTitle(title);
         builder.setMessage(message);
         builder.show();
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            onBackPressed();
+            return  true;
+        }
+        return super.onOptionsItemSelected(item);
+
     }
 
 }

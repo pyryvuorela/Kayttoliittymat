@@ -15,10 +15,10 @@
     android:id="@+id/Add">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Select house to modify"
+        android:text="Modify residence"
         android:textColor="#039BE5"
         android:textSize="15dp"
         android:id="@+id/AddUsertextView"

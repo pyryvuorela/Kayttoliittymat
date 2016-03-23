@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -33,6 +34,8 @@ public class adminAddUser extends AppCompatActivity {
         setContentView(R.layout.activity_admin_add_user);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         userData = new UserDatabase(this);
         houseDatabase = new HouseDatabase(this);
@@ -68,8 +71,10 @@ public class adminAddUser extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
               public void onClick(View view) {
                  boolean isInserted = userData.insertData(username.getText().toString(), password.getText().toString(), usersSelectedHouses.get(0));
-                  if(isInserted == true)
+                  if(isInserted == true) {
                       Toast.makeText(adminAddUser.this, "Data Inserted", Toast.LENGTH_LONG).show();
+                      startActivity(new Intent(getApplicationContext(), adminUserControl.class));
+                  }
                   else
                       Toast.makeText(adminAddUser.this, "Data not Inserted", Toast.LENGTH_LONG).show();
               }
@@ -91,6 +96,7 @@ public class adminAddUser extends AppCompatActivity {
 
                 }
                 showMessage("Data", buffer.toString());
+
             }
         });
     }
@@ -101,5 +107,14 @@ public class adminAddUser extends AppCompatActivity {
         builder.setTitle(title);
         builder.setMessage(message);
         builder.show();
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            onBackPressed();
+            return  true;
+        }
+        return super.onOptionsItemSelected(item);
+
     }
 }

@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -32,6 +33,8 @@ public class adminModifyUser extends AppCompatActivity {
         setContentView(R.layout.activity_admin_modify_user);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         userData = new UserDatabase(this);
         houseDatabase = new HouseDatabase(this);
         userHouses = new ArrayList<String>();
@@ -72,8 +75,10 @@ public class adminModifyUser extends AppCompatActivity {
                     Toast.makeText(adminModifyUser.this, "Fill all the fields", Toast.LENGTH_SHORT).show();
                 } else {
                     boolean isUpdated = userData.updateData(currenUser, username.getText().toString(), password.getText().toString(), userHouses.get(0));
-                    if (isUpdated == true)
+                    if (isUpdated == true) {
                         Toast.makeText(adminModifyUser.this, "Data Updated", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(getApplicationContext(), adminUserControl.class));
+                    }
                     else
                         Toast.makeText(adminModifyUser.this, "Data not Updated", Toast.LENGTH_SHORT).show();
                 }
@@ -91,5 +96,14 @@ public class adminModifyUser extends AppCompatActivity {
                     Toast.makeText(adminModifyUser.this, "Data not Deleted", Toast.LENGTH_LONG).show();
             }
         });
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            onBackPressed();
+            return  true;
+        }
+        return super.onOptionsItemSelected(item);
+
     }
 }

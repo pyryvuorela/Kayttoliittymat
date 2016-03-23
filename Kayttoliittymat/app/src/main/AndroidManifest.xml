@@ -12,7 +12,7 @@
         android:icon="@drawable/zhomeicon"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/Theme.AppCompat.Light">
         <activity
             android:name=".MainActivity"
             android:label="zHome"
@@ -25,37 +25,37 @@
         </activity>
         <activity
             android:name=".adminMainMenu"
-            android:label="Menu"
+            android:label=""
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".adminUserControl"
-            android:label="User control"
+            android:label=""
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".adminRoomControl"
-            android:label="Room control"
+            android:label=""
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".adminAddUser"
             android:windowSoftInputMode="adjustPan"
-            android:label="@string/title_activity_add_user_new"
+            android:label=""
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".adminModifyUser"
             android:windowSoftInputMode="adjustPan"
-            android:label="@string/title_activity_modify_user_scroll"
+            android:label=""
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".userMainMenu"
-            android:label="@string/title_activity_user_main_menu"
+            android:label=""
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".adminAddHouse"
-            android:label="@string/title_activity_admin_add_house"
+            android:label=""
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".adminHouseControl"
-            android:label="@string/title_activity_admin_house_control"
+            android:label=""
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
 

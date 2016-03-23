@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Add house"
+        android:text="Add residence"
         android:textColor="#039BE5"
         android:textSize="15dp"
         android:id="@+id/AddUsertextView"

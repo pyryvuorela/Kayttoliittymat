@@ -9,6 +9,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -30,6 +31,8 @@ public class adminRoomControl extends AppCompatActivity {
         setContentView(R.layout.activity_admin_room_control);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         houseDatabase = new HouseDatabase(this);
         listView = (ListView) findViewById(R.id.adminHouseControlListViewID);
@@ -61,5 +64,14 @@ public class adminRoomControl extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), adminAddHouse.class));
             }
         });
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            onBackPressed();
+            return  true;
+        }
+        return super.onOptionsItemSelected(item);
+
     }
 }

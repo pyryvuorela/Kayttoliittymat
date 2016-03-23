@@ -1,9 +1,11 @@
 package com.example.pyry.kayttoliittymat;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -37,6 +39,8 @@ public class adminHouseControl extends AppCompatActivity {
         setContentView(R.layout.activity_admin_house_control);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         houseDatabase = new HouseDatabase(this);
         modifyHouse = (Button) findViewById(R.id.modifyHousefinalButtonID);
@@ -82,8 +86,10 @@ public class adminHouseControl extends AppCompatActivity {
         modifyHouse.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 boolean isInserted = houseDatabase.insertData(currentHouse,room1.isChecked(),room1Light.isChecked(),room1Lock.isChecked(),room1Temp.isChecked(),room2.isChecked(),room2Light.isChecked(),room2Lock.isChecked(),room2Temp.isChecked(),room3.isChecked(),room3Light.isChecked(),room3Lock.isChecked(),room3Temp.isChecked());
-                if(isInserted == true)
+                if(isInserted == true) {
                     Toast.makeText(adminHouseControl.this, "Data Inserted", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(getApplicationContext(), adminRoomControl.class));
+                }
                 else
                     Toast.makeText(adminHouseControl.this, "Data not Inserted", Toast.LENGTH_LONG).show();
             }
@@ -91,12 +97,23 @@ public class adminHouseControl extends AppCompatActivity {
         deleteHouse.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Integer isDeleted = houseDatabase.deleteData(currentHouse);
-                if(isDeleted > 0)
+                if(isDeleted > 0) {
                     Toast.makeText(adminHouseControl.this, "Data Deleted", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(getApplicationContext(), adminRoomControl.class));
+                }
                 else
                     Toast.makeText(adminHouseControl.this, "Data not Deleted", Toast.LENGTH_LONG).show();
             }
         });
+
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            onBackPressed();
+            return  true;
+        }
+        return super.onOptionsItemSelected(item);
 
     }
 }
