@@ -17,7 +17,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/UsernamemodifyID"
-        android:layout_marginTop="68dp"
         android:textSize="30dp"
         android:textAlignment="center"
         android:textColor="#ffffff"
@@ -25,7 +24,7 @@
         android:textColorHint="#3e3e3e"
         android:backgroundTint="#3e3e3e"
         android:drawableTint="#3e3e3e"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/textView"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -33,7 +32,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/UserPasswordModifyID"
-        android:layout_marginTop="40dp"
         android:textColor="#ffffff"
         android:textColorHint="#3e3e3e"
         android:textSize="30dp"
@@ -42,8 +40,8 @@
         android:backgroundTint="#3e3e3e"
         android:drawableTint="#3e3e3e"
         android:layout_below="@+id/UsernamemodifyID"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="fill_parent"
@@ -51,37 +49,32 @@
         android:text="Modify"
         android:textColor="#ffffff"
         android:id="@+id/modifyUserSettingsButtonID"
-        android:backgroundTint="?attr/colorPrimary"
-        android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"
+        android:backgroundTint="?attr/colorAccent"
         android:textSize="20dp"
+        android:layout_below="@+id/UserPasswordModifyID"
+        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/UsernamedeleteID"
-        android:layout_marginTop="84dp"
         android:backgroundTint="#3e3e3e"
         android:drawableTint="#3e3e3e"
         android:textColorHint="#3e3e3e"
         android:textSize="30dp"
         android:textAlignment="center"
         android:hint="Username"
-        android:layout_below="@+id/modifyUserSettingsButtonID"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_above="@+id/modifyUserDeleteButtonID" />
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Delete"
         android:id="@+id/modifyUserDeleteButtonID"
-        android:layout_below="@+id/UsernamedeleteID"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:textSize="20dp"
-        android:backgroundTint="#c62828" />
+        android:backgroundTint="#c62828"
+        android:layout_alignParentBottom="true"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -91,10 +84,7 @@
         android:textSize="15dp"
         android:textColor="#039BE5"
         android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="41dp" />
+        android:layout_alignParentTop="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -103,9 +93,16 @@
         android:text="Delete user"
         android:textColor="#039BE5"
         android:textSize="15dp"
-        android:id="@+id/textView2"
-        android:layout_below="@+id/modifyUserSettingsButtonID"
+        android:id="@+id/AddUsertextView"
+        android:layout_above="@+id/UsernamedeleteID"
+        android:layout_below="@+id/adminModifyUserListView"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="45dp" />
+        android:layout_alignParentStart="true" />
+
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="190dp"
+        android:id="@+id/adminModifyUserListView"
+        android:layout_below="@+id/modifyUserSettingsButtonID"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

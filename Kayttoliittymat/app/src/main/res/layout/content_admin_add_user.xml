@@ -20,11 +20,10 @@
         android:text="Add user"
         android:textColor="#039BE5"
         android:textSize="15dp"
-        android:id="@+id/textView2"
-        android:layout_below="@+id/modifyUserSettingsButtonID"
+        android:id="@+id/AddUsertextView"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="45dp" />
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="match_parent"
@@ -37,17 +36,15 @@
         android:backgroundTint="#3e3e3e"
         android:drawableTint="#3e3e3e"
         android:textColor="#ffffff"
-        android:layout_marginTop="86dp"
         android:textCursorDrawable="@drawable/custom_cursor"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_below="@+id/AddUsertextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/addPasswordID"
-        android:layout_marginTop="34dp"
         android:hint="Password"
         android:textColorHint="#3e3e3e"
         android:textAlignment="center"
@@ -57,92 +54,47 @@
         android:textColor="#ffffff"
         android:textCursorDrawable="@drawable/custom_cursor"
         android:layout_below="@+id/addUsernameID"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Add house"
+        android:textColor="#039BE5"
+        android:textSize="15dp"
+        android:id="@+id/selectHouseTextView"
+        android:layout_below="@+id/addPasswordID"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="100dp"
-        android:id="@+id/scrollView"
-        android:layout_below="@+id/addPasswordID"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp">
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <CheckBox
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#ffffff"
-                android:text="House1"
-                android:textAlignment="center"
-                android:id="@+id/checkBox1"
-                android:buttonTint="#ffffff" />
-            <CheckBox
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#ffffff"
-                android:text="House2"
-                android:textAlignment="center"
-                android:id="@+id/checkBox2"
-                android:buttonTint="#ffffff" />
-            <CheckBox
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#ffffff"
-                android:text="House3"
-                android:textAlignment="center"
-                android:id="@+id/checkBox3"
-                android:buttonTint="#ffffff" />
-            <CheckBox
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#ffffff"
-                android:text="House4"
-                android:textAlignment="center"
-                android:id="@+id/checkBox4"
-                android:buttonTint="#ffffff" />
-            <CheckBox
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#ffffff"
-                android:text="House5"
-                android:textAlignment="center"
-                android:id="@+id/checkBox5"
-                android:buttonTint="#ffffff" />
-            <CheckBox
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#ffffff"
-                android:text="House6"
-                android:textAlignment="center"
-                android:id="@+id/checkBox6"
-                android:buttonTint="#ffffff" />
-        </LinearLayout>
-    </ScrollView>
+    <ListView
+        android:id="@+id/adminAddUserListViewID"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:layout_below="@id/selectHouseTextView"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add user"
-        android:id="@+id/addNewHouseButtonID"
-        android:background="#212121"
+        android:id="@+id/addNewUserButtonID"
+        android:backgroundTint="?attr/colorAccent"
         android:textColor="#ffffff"
-        android:layout_below="@+id/scrollView"
+        android:layout_above="@+id/ViewAllID"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="26dp" />
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="View All"
         android:id="@+id/ViewAllID"
-        android:layout_below="@+id/addNewHouseButtonID"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="49dp" />
 
 
 </RelativeLayout>

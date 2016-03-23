@@ -24,7 +24,8 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="100dp"
-        android:textAlignment="center" />
+        android:layout_marginTop="120dp"
+        android:textAlignment="center"
+        android:id="@+id/adminHouseControlListViewID" />
 
 </RelativeLayout>

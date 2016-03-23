@@ -21,7 +21,7 @@
         android:text="Select house to modify"
         android:textColor="#039BE5"
         android:textSize="15dp"
-        android:id="@+id/textView2"
+        android:id="@+id/AddUsertextView"
         android:layout_below="@+id/modifyUserSettingsButtonID"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -36,7 +36,7 @@
         android:buttonTint="#039BE5"
         android:id="@+id/room1ModiSwitch"
         android:checked="false"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/AddUsertextView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="25dp" />
