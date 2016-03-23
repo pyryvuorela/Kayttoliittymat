@@ -5,11 +5,17 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ExpandableListView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 
 public class adminHouseControl extends AppCompatActivity {
@@ -28,8 +34,7 @@ public class adminHouseControl extends AppCompatActivity {
     CheckBox room3Light;
     CheckBox room3Lock;
     CheckBox room3Temp;
-    EditText currentHouse;
-    TempData tempData;
+    String currentHouse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,11 +58,16 @@ public class adminHouseControl extends AppCompatActivity {
         room1Temp = (CheckBox) findViewById(R.id.Room1TempModi);
         room2Temp = (CheckBox) findViewById(R.id.Room2TempModi);
         room3Temp = (CheckBox) findViewById(R.id.Room3TempModi);
-
-
         Cursor res = houseDatabase.getAllData();
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            currentHouse = extras.getString("housename");
+        }
+
+
         while(res.moveToNext()){
-            if(res.getString(0).equals("pyry")){
+            if(res.getString(0).equals(currentHouse)){
                 if(res.getString(1).equals("1"))room1.setChecked(true);
                 if(res.getString(2).equals("1"))room1Light.setChecked(true);
                 if(res.getString(3).equals("1"))room1Lock.setChecked(true);
@@ -76,11 +86,20 @@ public class adminHouseControl extends AppCompatActivity {
 
         modifyHouse.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                boolean isInserted = houseDatabase.insertData(currentHouse.getText().toString(), room1.isChecked(), room1Light.isChecked(), room1Lock.isChecked(), room1Temp.isChecked(), room2.isChecked(), room2Light.isChecked(), room2Lock.isChecked(), room2Temp.isChecked(), room3.isChecked(), room3Light.isChecked(), room3Lock.isChecked(), room3Temp.isChecked());
-                if (isInserted == true)
+                boolean isInserted = houseDatabase.insertData(currentHouse,room1.isChecked(),room1Light.isChecked(),room1Lock.isChecked(),room1Temp.isChecked(),room2.isChecked(),room2Light.isChecked(),room2Lock.isChecked(),room2Temp.isChecked(),room3.isChecked(),room3Light.isChecked(),room3Lock.isChecked(),room3Temp.isChecked());
+                if(isInserted == true)
                     Toast.makeText(adminHouseControl.this, "Data Inserted", Toast.LENGTH_LONG).show();
                 else
                     Toast.makeText(adminHouseControl.this, "Data not Inserted", Toast.LENGTH_LONG).show();
+            }
+        });
+        deleteHouse.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Integer isDeleted = houseDatabase.deleteData(currentHouse);
+                if(isDeleted > 0)
+                    Toast.makeText(adminHouseControl.this, "Data Deleted", Toast.LENGTH_LONG).show();
+                else
+                    Toast.makeText(adminHouseControl.this, "Data not Deleted", Toast.LENGTH_LONG).show();
             }
         });
 

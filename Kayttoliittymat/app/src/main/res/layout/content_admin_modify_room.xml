@@ -14,29 +14,11 @@
     tools:showIn="@layout/activity_admin_modify_room">
 
 
-    <EditText
-        android:layout_width="fill_parent"
+    <ListView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/modifyHouseSelectNameID"
-        android:hint="Housename"
-        android:textAlignment="center"
-        android:textColorHint="#3e3e3e"
-        android:textColor="#ffffff"
-        android:layout_marginTop="178dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Modify House"
-        android:id="@+id/modifyHouseSelectButtonID"
-        android:background="#039BE5"
-        android:textColor="#ffffff"
-        android:layout_marginTop="46dp"
-        android:layout_below="@+id/modifyHouseSelectNameID"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:id="@+id/listView"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true" />
 
 </RelativeLayout>

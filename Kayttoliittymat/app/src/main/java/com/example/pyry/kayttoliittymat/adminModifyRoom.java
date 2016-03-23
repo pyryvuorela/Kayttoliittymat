@@ -6,15 +6,21 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class adminModifyRoom extends AppCompatActivity {
     HouseDatabase houseDatabase;
-    Button modifyHouse;
-    EditText selectHouse;
-    TempData tempData;
+
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,23 +30,30 @@ public class adminModifyRoom extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         houseDatabase = new HouseDatabase(this);
-        modifyHouse = (Button) findViewById(R.id.modifyHouseSelectButtonID);
-        selectHouse = (EditText) findViewById(R.id.modifyHouseSelectNameID);
+        listView = (ListView) findViewById(R.id.listView);
+        Cursor res = houseDatabase.getAllData();
+        List<String> allHouses = new ArrayList<String>();
 
+        int count = 0;
+        while (res.moveToNext()) {
+           allHouses.add(res.getString(0));
+           count++;
+       }
+        ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, allHouses);
+        listView.setAdapter(listAdapter);
 
-        modifyHouse.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Cursor res = houseDatabase.getAllData();
-                boolean found = false;
-                while(res.moveToNext()){
-                    if(res.getString(0).equals(selectHouse.getText().toString())){
-                        startActivity(new Intent(getApplicationContext(), adminHouseControl.class));
-                        found = true;
-                    }
-                }
-                if(found == false)
-                Toast.makeText(adminModifyRoom.this, "House not found", Toast.LENGTH_LONG).show();
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String house = String.valueOf(parent.getItemAtPosition(position));
+                Intent i = new Intent(getApplicationContext(), adminHouseControl.class);
+                i.putExtra("housename",house);
+                startActivity(i);
             }
         });
+
+
     }
 }
+
+
