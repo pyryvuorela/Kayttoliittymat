@@ -100,7 +100,7 @@ public class adminModifyUser extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == android.R.id.home) {
-            onBackPressed();
+            startActivity(new Intent(getApplicationContext(), adminUserControl.class));
             return  true;
         }
         return super.onOptionsItemSelected(item);

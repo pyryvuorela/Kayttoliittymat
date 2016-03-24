@@ -4,5 +4,6 @@
     android:textColor="#ffffff"
     android:layout_width="fill_parent"
     android:textSize="25dp"
+    android:textAllCaps="true"
     android:gravity="center"
     android:layout_height="60dp"/>

@@ -18,27 +18,37 @@
             android:layout_height="match_parent">
 
 
-            <Switch
-                android:layout_width="fill_parent"
-                android:layout_height="50dp"
-                android:text="allLights"
-                android:textColor="#ffffff"
-                android:textSize="30dp"
-                android:id="@+id/testswitch1"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
-            <Switch
-                android:layout_width="fill_parent"
-                android:layout_height="50dp"
-                android:text="allLocked"
-                android:textColor="#ffffff"
-                android:textSize="30dp"
-                android:id="@+id/testswitch2"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
-
         </LinearLayout>
     </ScrollView>
+
+    <Switch
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:text="Lock"
+        android:textColor="#ffffff"
+        android:textSize="30dp"
+        android:id="@+id/userMainMenuLocks"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="104dp" />
+
+    <Switch
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:text="Light"
+        android:textColor="#ffffff"
+        android:textSize="30dp"
+        android:id="@+id/userMainMenuLigths"
+        android:layout_alignBottom="@+id/userMainMenuLocks"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="46dp" />
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/userMainMenuListView"
+        android:layout_below="@+id/userMainMenuLocks"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

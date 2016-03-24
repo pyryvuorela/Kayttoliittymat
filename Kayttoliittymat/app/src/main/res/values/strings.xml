@@ -116,4 +116,6 @@
     <string name="title_activity_user_main_menu">userMainMenu</string>
     <string name="title_activity_admin_add_house">adminAddHouse</string>
     <string name="title_activity_admin_house_control">adminHouseControl</string>
+    <string name="title_activity_user_room_selection">userRoomSelection</string>
+    <string name="title_activity_user_room_control">userRoomControl</string>
 </resources>

@@ -66,7 +66,7 @@ public class adminUserControl extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == android.R.id.home) {
-            onBackPressed();
+            startActivity(new Intent(getApplicationContext(), adminMainMenu.class));
             return  true;
         }
         return super.onOptionsItemSelected(item);

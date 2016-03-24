@@ -12,7 +12,7 @@
         android:icon="@drawable/zhomeicon"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light">
+        android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
             android:label="zHome"
@@ -37,14 +37,14 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".adminAddUser"
-            android:windowSoftInputMode="adjustPan"
             android:label=""
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".adminModifyUser"
-            android:windowSoftInputMode="adjustPan"
             android:label=""
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".userMainMenu"
             android:label=""
@@ -57,6 +57,14 @@
             android:name=".adminHouseControl"
             android:label=""
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".userRoomSelection"
+            android:label="@string/title_activity_user_room_selection"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".userRoomControl"
+            android:label="@string/title_activity_user_room_control"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

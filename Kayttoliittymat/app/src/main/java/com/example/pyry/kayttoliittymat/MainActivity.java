@@ -39,7 +39,9 @@ public class MainActivity extends AppCompatActivity {
                 } else{
                     while (res.moveToNext()) {
                         if (res.getString(1).equals(userName.getText().toString()) && res.getString(2).equals(password.getText().toString())) {
-                            startActivity(new Intent(getApplicationContext(), userMainMenu.class));
+                            Intent i = new Intent(getApplicationContext(), userMainMenu.class);
+                            i.putExtra("username", userName.getText().toString());
+                            startActivity(i);
                             break;
                         }
                     }
