@@ -32,6 +32,10 @@ public class adminAddHouse extends AppCompatActivity {
     CheckBox room3Lock;
     CheckBox room3Temp;
 
+    EditText room1Name;
+    EditText room2Name;
+    EditText room3Name;
+
     Button viewAll;
 
     @Override
@@ -58,13 +62,17 @@ public class adminAddHouse extends AppCompatActivity {
         room1Temp = (CheckBox) findViewById(R.id.Room1TempAdd);
         room2Temp = (CheckBox) findViewById(R.id.Room2TempAdd);
         room3Temp = (CheckBox) findViewById(R.id.Room3TempAdd);
+        room1Name = (EditText) findViewById(R.id.adminAddHouseroom1Name);
+        room2Name = (EditText) findViewById(R.id.adminAddHouseroom2Name);
+        room3Name = (EditText) findViewById(R.id.adminAddHouseroom3Name);
+
 
         viewAll = (Button) findViewById(R.id.addNewHouseViewAllButtonID);
 
         addHouse.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
 
-                boolean isInserted = houseData.insertData(houseName.getText().toString(),room1.isChecked(),room1Light.isChecked(),room1Lock.isChecked(),room1Temp.isChecked(),room2.isChecked(),room2Light.isChecked(),room2Lock.isChecked(),room2Temp.isChecked(),room3.isChecked(),room3Light.isChecked(),room3Lock.isChecked(),room3Temp.isChecked());
+                boolean isInserted = houseData.insertData(houseName.getText().toString(),room1.isChecked(),room1Light.isChecked(),room1Lock.isChecked(),room1Temp.isChecked(),room2.isChecked(),room2Light.isChecked(),room2Lock.isChecked(),room2Temp.isChecked(),room3.isChecked(),room3Light.isChecked(),room3Lock.isChecked(),room3Temp.isChecked(), room1Name.getText().toString(),room2Name.getText().toString(),room3Name.getText().toString());
                 if(isInserted == true) {
                     Toast.makeText(adminAddHouse.this, "Data Inserted", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(getApplicationContext(), adminRoomControl.class));
@@ -86,19 +94,22 @@ public class adminAddHouse extends AppCompatActivity {
                 StringBuffer buffer = new StringBuffer();
 
                 while(res.moveToNext()){
-                    buffer.append("House name :" + res.getString(0)+ "\n");
-                    buffer.append("Room1 :" + res.getString(1)+ "\n");
-                    buffer.append("Room1 light :" + res.getString(2)+ "\n");
-                    buffer.append("Room1 lock :" + res.getString(3)+ "\n");
-                    buffer.append("Room1 temp :" + res.getString(4)+ "\n");
-                    buffer.append("Room2 :" + res.getString(5)+ "\n");
-                    buffer.append("Room2 light :" + res.getString(6)+ "\n");
-                    buffer.append("Room2 lock :" + res.getString(7)+ "\n");
-                    buffer.append("Room2 temp :" + res.getString(8)+ "\n");
-                    buffer.append("Room3 :" + res.getString(9)+ "\n");
-                    buffer.append("Room3 light :" + res.getString(10)+ "\n");
-                    buffer.append("Room3 lock :" + res.getString(11)+ "\n");
-                    buffer.append("Room3 temp :" + res.getString(12)+ "\n\n");
+                    buffer.append("House name :" + res.getString(1)+ "\n");
+                    buffer.append("Room1 :" + res.getString(2)+ "\n");
+                    buffer.append("Room1 light :" + res.getString(3)+ "\n");
+                    buffer.append("Room1 lock :" + res.getString(4)+ "\n");
+                    buffer.append("Room1 temp :" + res.getString(5)+ "\n");
+                    buffer.append("Room2 :" + res.getString(6)+ "\n");
+                    buffer.append("Room2 light :" + res.getString(7)+ "\n");
+                    buffer.append("Room2 lock :" + res.getString(8)+ "\n");
+                    buffer.append("Room2 temp :" + res.getString(9)+ "\n");
+                    buffer.append("Room3 :" + res.getString(10)+ "\n");
+                    buffer.append("Room3 light :" + res.getString(11)+ "\n");
+                    buffer.append("Room3 lock :" + res.getString(12)+ "\n");
+                    buffer.append("Room3 temp :" + res.getString(13)+ "\n");
+                    buffer.append("Room1 name :" + res.getString(14)+ "\n");
+                    buffer.append("Room2 name :" + res.getString(15)+ "\n");
+                    buffer.append("Room3 name :" + res.getString(16)+ "\n\n");
 
                 }
                 showMessage("Data", buffer.toString());
@@ -116,11 +127,9 @@ public class adminAddHouse extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == android.R.id.home) {
-            startActivity(new Intent(getApplicationContext(), adminUserControl.class));
+            startActivity(new Intent(getApplicationContext(), adminRoomControl.class));
             return  true;
         }
         return super.onOptionsItemSelected(item);
-
     }
-
 }

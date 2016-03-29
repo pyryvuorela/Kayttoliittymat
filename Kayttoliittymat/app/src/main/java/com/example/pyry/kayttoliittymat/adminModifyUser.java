@@ -25,6 +25,9 @@ public class adminModifyUser extends AppCompatActivity {
     ListView listView;
     ArrayList<String> userHouses;
     String currenUser;
+    Button resetHouses;
+    EditText primHouse;
+    EditText secHouse;
 
 
     @Override
@@ -43,18 +46,31 @@ public class adminModifyUser extends AppCompatActivity {
         modifyUsers = (Button) findViewById(R.id.modifyUserSettingsButtonID);
         deleteUser = (Button) findViewById(R.id.modifyUserDeleteButtonID);
         listView = (ListView) findViewById(R.id.adminModifyUserListView);
+        primHouse = (EditText) findViewById(R.id.adminmodifyUserSelectedHouse1);
+        secHouse = (EditText) findViewById(R.id.adminModifyUserSelectedHouse2);
+        resetHouses = (Button) findViewById(R.id.modifyUserResetHOusesButtonID);
+
 
         Cursor res = houseDatabase.getAllData();
+        final Cursor userRes = userData.getAllData();
         List<String> allUsers = new ArrayList<String>();
+
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             currenUser = extras.getString("username");
         }
-        int count = 0;
+
+        while(userRes.moveToNext()){
+            if(userRes.getString(1).equals(currenUser)){
+                username.setText(userRes.getString(1));
+                password.setText(userRes.getString(2));
+                primHouse.setText(userRes.getString(3));
+                secHouse.setText(userRes.getString(4));
+            }
+        }
         while (res.moveToNext()) {
-            allUsers.add(res.getString(0));
-            count++;
+            allUsers.add(res.getString(1));
         }
 
         ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, R.layout.custom_listview, allUsers);
@@ -63,40 +79,65 @@ public class adminModifyUser extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String house = String.valueOf(parent.getItemAtPosition(position));
-                userHouses.add(house);
-                Toast.makeText(adminModifyUser.this, "House selected", Toast.LENGTH_SHORT).show();
+                if (primHouse.getText().toString().equals("")) {
+                    String house = String.valueOf(parent.getItemAtPosition(position));
+                    primHouse.setText(house);
+                    userHouses.add(house);
+                    Toast.makeText(adminModifyUser.this, "House selected", Toast.LENGTH_SHORT).show();
+                } else if (secHouse.getText().toString().equals("")) {
+                    String house = String.valueOf(parent.getItemAtPosition(position));
+                    secHouse.setText(house);
+                    userHouses.add(house);
+                    Toast.makeText(adminModifyUser.this, "House selected", Toast.LENGTH_SHORT).show();
+                }
             }
-        });
+            });
 
-        modifyUsers.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
+            modifyUsers.setOnClickListener(new View.OnClickListener()
+
+            {
+                public void onClick (View view){
                 if (currenUser == null || username.getText().toString().equals("") || password.getText().toString().equals("") || userHouses.get(0).equals("")) {
                     Toast.makeText(adminModifyUser.this, "Fill all the fields", Toast.LENGTH_SHORT).show();
                 } else {
-                    boolean isUpdated = userData.updateData(currenUser, username.getText().toString(), password.getText().toString(), userHouses.get(0));
+                    boolean isUpdated = userData.updateData(currenUser, username.getText().toString(), password.getText().toString(), userHouses.get(0), userHouses.get(1));
                     if (isUpdated == true) {
                         Toast.makeText(adminModifyUser.this, "Data Updated", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplicationContext(), adminUserControl.class));
-                    }
-                    else
+                    } else
                         Toast.makeText(adminModifyUser.this, "Data not Updated", Toast.LENGTH_SHORT).show();
                 }
             }
-        });
-        deleteUser.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
+            }
+
+            );
+            deleteUser.setOnClickListener(new View.OnClickListener()
+
+            {
+                public void onClick (View view){
                 Integer isDeleted = userData.deleteData(currenUser);
-                if(isDeleted > 0) {
+                if (isDeleted > 0) {
                     Toast.makeText(adminModifyUser.this, "Data Deleted", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(getApplicationContext(), adminUserControl.class));
 
-                }
-                else
+                } else
                     Toast.makeText(adminModifyUser.this, "Data not Deleted", Toast.LENGTH_LONG).show();
             }
-        });
-    }
+            }
+
+            );
+            resetHouses.setOnClickListener(new View.OnClickListener()
+
+            {
+                public void onClick (View view){
+                primHouse.setText("");
+                secHouse.setText("");
+            }
+            }
+
+            );
+        }
+
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == android.R.id.home) {

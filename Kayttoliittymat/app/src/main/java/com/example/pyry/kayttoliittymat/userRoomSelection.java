@@ -20,6 +20,7 @@ public class userRoomSelection extends AppCompatActivity {
     HouseDatabase houseDatabase;
     ListView listView;
     String currentHouse;
+    String currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +39,13 @@ public class userRoomSelection extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             currentHouse = extras.getString("housename");
+            currentUser = extras.getString("username");
         }
         while(resHouse.moveToNext()){
-            if(currentHouse.equals(resHouse.getString(0))){
-                if(resHouse.getString(2).equals("1"))allRooms.add("Room1");
-                if(resHouse.getString(6).equals("1"))allRooms.add("Room2");
-                if(resHouse.getString(10).equals("1"))allRooms.add("Room3");
+            if(currentHouse.equals(resHouse.getString(1))){
+                if(resHouse.getString(14).equals("")){}else allRooms.add(resHouse.getString(14));
+                if(resHouse.getString(15).equals("")){}else allRooms.add(resHouse.getString(15));
+                if(resHouse.getString(16).equals("")){}else allRooms.add(resHouse.getString(16));
             }
         }
 
@@ -56,6 +58,8 @@ public class userRoomSelection extends AppCompatActivity {
                 String room = String.valueOf(parent.getItemAtPosition(position));
                 Intent i = new Intent(getApplicationContext(), userRoomControl.class);
                 i.putExtra("roomname", room);
+                i.putExtra("housename", currentHouse);
+                i.putExtra("username", currentUser);
                 startActivity(i);
             }
         });
@@ -63,7 +67,9 @@ public class userRoomSelection extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == android.R.id.home) {
-            startActivity(new Intent(getApplicationContext(), userMainMenu.class));
+            Intent i = new Intent(getApplicationContext(), userMainMenu.class);
+            i.putExtra("username", currentUser);
+            startActivity(i);
             return  true;
         }
         return super.onOptionsItemSelected(item);

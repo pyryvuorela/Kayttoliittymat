@@ -31,7 +31,7 @@
     <Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Room1 "
+        android:text="Room1  "
         android:textColor="#ffffff"
         android:buttonTint="#039BE5"
         android:id="@+id/room1ModiSwitch"
@@ -51,7 +51,8 @@
         android:layout_below="@+id/room1ModiSwitch"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:checked="false" />
+        android:checked="false"
+        android:layout_marginTop="20dp" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -61,7 +62,7 @@
         android:textColor="#ffffff"
         android:id="@+id/Room1LockModi"
         android:checked="false"
-        android:layout_below="@+id/room1ModiSwitch"
+        android:layout_alignTop="@+id/Room1LigthModi"
         android:layout_centerHorizontal="true" />
 
     <CheckBox
@@ -79,14 +80,15 @@
     <Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Room2 "
+        android:text="Room2  "
         android:textColor="#ffffff"
         android:buttonTint="#ffffff"
         android:id="@+id/room2ModiSwitch"
         android:checked="false"
-        android:layout_above="@+id/Room2LigthModi"
+        android:layout_below="@+id/Room1LigthModi"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp" />
 
     <CheckBox
         android:layout_width="100dp"
@@ -108,9 +110,10 @@
         android:textColor="#ffffff"
         android:id="@+id/Room2LockModi"
         android:checked="false"
-        android:layout_alignTop="@+id/Room2TempModi"
-        android:layout_alignLeft="@+id/Room3LockModi"
-        android:layout_alignStart="@+id/Room3LockModi" />
+        android:layout_below="@+id/room2ModiSwitch"
+        android:layout_alignLeft="@+id/Room1LockModi"
+        android:layout_alignStart="@+id/Room1LockModi"
+        android:layout_marginTop="20dp" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -120,22 +123,22 @@
         android:textColor="#ffffff"
         android:id="@+id/Room2TempModi"
         android:checked="false"
-        android:layout_above="@+id/room3ModiSwitch"
-        android:layout_alignRight="@+id/modifyHousefinalButtonID"
-        android:layout_alignEnd="@+id/modifyHousefinalButtonID"
-        android:layout_marginBottom="41dp" />
+        android:layout_alignTop="@+id/Room2LockModi"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Room3 "
+        android:text="Room3  "
         android:textColor="#ffffff"
         android:buttonTint="#ffffff"
         android:id="@+id/room3ModiSwitch"
         android:checked="false"
-        android:layout_above="@+id/Room3LigthModi"
+        android:layout_below="@+id/Room2LigthModi"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp" />
 
     <CheckBox
         android:layout_width="100dp"
@@ -145,9 +148,10 @@
         android:textColor="#ffffff"
         android:id="@+id/Room3LigthModi"
         android:checked="false"
-        android:layout_alignTop="@+id/Room3LockModi"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/room3ModiSwitch"
+        android:layout_alignRight="@+id/room3ModiSwitch"
+        android:layout_alignEnd="@+id/room3ModiSwitch"
+        android:layout_marginTop="20dp" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -157,9 +161,10 @@
         android:textColor="#ffffff"
         android:id="@+id/Room3LockModi"
         android:checked="false"
-        android:layout_alignTop="@+id/Room3TempModi"
-        android:layout_alignLeft="@+id/Room1LockModi"
-        android:layout_alignStart="@+id/Room1LockModi" />
+        android:layout_below="@+id/room3ModiSwitch"
+        android:layout_alignLeft="@+id/Room2LockModi"
+        android:layout_alignStart="@+id/Room2LockModi"
+        android:layout_marginTop="20dp" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -169,10 +174,9 @@
         android:textColor="#ffffff"
         android:id="@+id/Room3TempModi"
         android:checked="false"
-        android:layout_above="@+id/modifyHousefinalButtonID"
-        android:layout_alignRight="@+id/modifyHousefinalButtonID"
-        android:layout_alignEnd="@+id/modifyHousefinalButtonID"
-        android:layout_marginBottom="23dp" />
+        android:layout_alignTop="@+id/Room3LockModi"
+        android:layout_alignLeft="@+id/Room2TempModi"
+        android:layout_alignStart="@+id/Room2TempModi" />
 
     <Button
     android:layout_width="match_parent"
@@ -181,10 +185,10 @@
     android:id="@+id/modifyHousefinalButtonID"
     android:background="#039BE5"
     android:textColor="#ffffff"
-        android:layout_above="@+id/deleteHouseButtonID"
+        android:layout_below="@+id/Room3LigthModi"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="26dp" />
+        android:layout_marginTop="40dp" />
 
     <Button
         android:layout_width="match_parent"
@@ -193,10 +197,47 @@
         android:id="@+id/deleteHouseButtonID"
         android:background="#c62828"
         android:textColor="#ffffff"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="48dp" />
+        android:layout_alignTop="@+id/modifyHousefinalButtonID"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="80dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Room name"
+        android:textColorHint="#3e3e3e"
+        android:textColor="#ffffff"
+        android:textAlignment="center"
+        android:ems="8"
+        android:id="@+id/adminHouseControlRoom1NAme"
+        android:layout_above="@+id/Room1LigthModi"
+        android:layout_toRightOf="@+id/room1ModiSwitch"
+        android:layout_toEndOf="@+id/room1ModiSwitch" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Room name"
+        android:textColorHint="#3e3e3e"
+        android:textColor="#ffffff"
+        android:textAlignment="center"
+        android:ems="8"
+        android:id="@+id/adminHouseControlRoom2NAme"
+        android:layout_above="@+id/Room2LigthModi"
+        android:layout_toRightOf="@+id/room2ModiSwitch"
+        android:layout_toEndOf="@+id/room2ModiSwitch" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Room name"
+        android:textColorHint="#3e3e3e"
+        android:textColor="#ffffff"
+        android:textAlignment="center"
+        android:ems="8"
+        android:id="@+id/adminHouseControlRoom3NAme"
+        android:layout_above="@+id/Room3TempModi"
+        android:layout_toRightOf="@+id/room3ModiSwitch"
+        android:layout_toEndOf="@+id/room3ModiSwitch" />
 
 
 </RelativeLayout>

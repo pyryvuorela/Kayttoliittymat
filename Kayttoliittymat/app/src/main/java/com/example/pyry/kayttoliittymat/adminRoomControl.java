@@ -41,7 +41,7 @@ public class adminRoomControl extends AppCompatActivity {
 
         int count = 0;
         while (res.moveToNext()) {
-            allHouses.add(res.getString(0));
+            allHouses.add(res.getString(1));
             count++;
         }
         ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, R.layout.custom_listview, allHouses);

@@ -13,9 +13,22 @@
     tools:showIn="@layout/activity_user_room_selection"
     android:background="?attr/colorPrimary">
 
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="SELECT RESIDENCE"
+        android:id="@+id/userRoomSelectionText"
+        android:textColor="#039BE5"
+        android:textSize="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
     <ListView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:layout_below="@id/userRoomSelectionText"
         android:id="@+id/userRoomSelectionListView"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />

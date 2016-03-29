@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +21,7 @@ public class userMainMenu extends AppCompatActivity {
     UserDatabase userDatabase;
     ListView listView;
     String currentUser;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +56,7 @@ public class userMainMenu extends AppCompatActivity {
                 String house = String.valueOf(parent.getItemAtPosition(position));
                 Intent i = new Intent(getApplicationContext(), userRoomSelection.class);
                 i.putExtra("housename", house);
+                i.putExtra("username", currentUser);
                 startActivity(i);
             }
         });

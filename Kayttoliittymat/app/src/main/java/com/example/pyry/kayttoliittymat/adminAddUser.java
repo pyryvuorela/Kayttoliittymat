@@ -27,6 +27,9 @@ public class adminAddUser extends AppCompatActivity {
     Button save;
     Button viewAll;
     ListView listView;
+    EditText primaryHouse;
+    EditText secondaryHouse;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,15 +47,17 @@ public class adminAddUser extends AppCompatActivity {
         username = (EditText) findViewById(R.id.addUsernameID);
         password = (EditText) findViewById(R.id.addPasswordID);
         save = (Button) findViewById(R.id.addNewUserButtonID);
-        viewAll = (Button) findViewById(R.id.ViewAllID);
         listView = (ListView) findViewById(R.id.adminAddUserListViewID);
+        primaryHouse = (EditText) findViewById(R.id.adminAddUserSelectedHouse1);
+        secondaryHouse = (EditText) findViewById(R.id.adminAddUserSelectedHouse2);
+
 
         Cursor res = houseDatabase.getAllData();
         List<String> allUsers = new ArrayList<String>();
 
         int count = 0;
         while (res.moveToNext()) {
-            allUsers.add(res.getString(0));
+            allUsers.add(res.getString(1));
             count++;
         }
 
@@ -62,41 +67,28 @@ public class adminAddUser extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String house = String.valueOf(parent.getItemAtPosition(position));
-                usersSelectedHouses.add(house);
-                Toast.makeText(adminAddUser.this, "House selected", Toast.LENGTH_SHORT).show();
+                if (primaryHouse.getText().toString().equals("")) {
+                    String house = String.valueOf(parent.getItemAtPosition(position));
+                    primaryHouse.setText(house);
+                    usersSelectedHouses.add(house);
+                    Toast.makeText(adminAddUser.this, "House selected", Toast.LENGTH_SHORT).show();
+                } else if (secondaryHouse.getText().toString().equals("")) {
+                    String house = String.valueOf(parent.getItemAtPosition(position));
+                    secondaryHouse.setText(house);
+                    usersSelectedHouses.add(house);
+                    Toast.makeText(adminAddUser.this, "House selected", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
         save.setOnClickListener(new View.OnClickListener() {
-              public void onClick(View view) {
-                 boolean isInserted = userData.insertData(username.getText().toString(), password.getText().toString(), usersSelectedHouses.get(0));
-                  if(isInserted == true) {
-                      Toast.makeText(adminAddUser.this, "Data Inserted", Toast.LENGTH_LONG).show();
-                      startActivity(new Intent(getApplicationContext(), adminUserControl.class));
-                  }
-                  else
-                      Toast.makeText(adminAddUser.this, "Data not Inserted", Toast.LENGTH_LONG).show();
-              }
-        });
-        viewAll.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Cursor reso = userData.getAllData();
-                if(reso.getCount() == 0){
-                    showMessage("Error", "Nothing found");
-                    return;
-                }
-                StringBuffer buffer = new StringBuffer();
-
-                while(reso.moveToNext()){
-                    buffer.append("Id :" + reso.getString(0)+ "\n");
-                    buffer.append("Username :" + reso.getString(1)+ "\n");
-                    buffer.append("Password :" + reso.getString(2)+ "\n");
-                    buffer.append("House :" + reso.getString(3)+ "\n\n");
-
-                }
-                showMessage("Data", buffer.toString());
-
+                boolean isInserted = userData.insertData(username.getText().toString(), password.getText().toString(), usersSelectedHouses.get(0), usersSelectedHouses.get(1));
+                if (isInserted == true) {
+                    Toast.makeText(adminAddUser.this, "Data Inserted", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(getApplicationContext(), adminUserControl.class));
+                } else
+                    Toast.makeText(adminAddUser.this, "Data not Inserted", Toast.LENGTH_LONG).show();
             }
         });
     }

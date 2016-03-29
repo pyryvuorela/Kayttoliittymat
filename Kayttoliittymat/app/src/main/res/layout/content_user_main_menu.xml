@@ -7,48 +7,21 @@
     android:orientation="vertical"
     tools:context="com.example.pyry.kayttoliittymat.adminMainMenu"
     android:background="?attr/colorPrimary">
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
-        </LinearLayout>
-    </ScrollView>
-
-    <Switch
+    <TextView
         android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:text="Lock"
-        android:textColor="#ffffff"
-        android:textSize="30dp"
-        android:id="@+id/userMainMenuLocks"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="104dp" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:textAlignment="center"
+        android:text="SELECT USER"
+        android:id="@+id/userMAinMEnuText1"
+        android:textColor="#039BE5"
+        android:textSize="30dp"/>
 
-    <Switch
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:text="Light"
-        android:textColor="#ffffff"
-        android:textSize="30dp"
-        android:id="@+id/userMainMenuLigths"
-        android:layout_alignBottom="@+id/userMainMenuLocks"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="46dp" />
     <ListView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/userMainMenuListView"
-        android:layout_below="@+id/userMainMenuLocks"
+        android:layout_below="@+id/userMAinMEnuText1"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 </RelativeLayout>
