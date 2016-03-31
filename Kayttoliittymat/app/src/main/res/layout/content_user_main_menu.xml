@@ -10,18 +10,35 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="70dp"
         android:textAlignment="center"
-        android:text="SELECT USER"
+        android:text="SELECT RESIDENCE"
         android:id="@+id/userMAinMEnuText1"
         android:textColor="#039BE5"
-        android:textSize="30dp"/>
+        android:textSize="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <ListView
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="350dp"
         android:id="@+id/userMainMenuListView"
         android:layout_below="@+id/userMAinMEnuText1"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="50dp" />
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="185dp"
+        android:text="Logout"
+        android:textColor="#ffffff"
+        android:textSize="30dp"
+        android:drawableLeft="@drawable/ic_clear_white_24dp"
+        android:drawableTint="#c62828"
+        android:id="@+id/logoutUserID"
+        android:backgroundTint="#212121"
+        android:layout_below="@+id/userMainMenuListView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

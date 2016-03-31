@@ -56,7 +56,7 @@ public class userRoomControl extends AppCompatActivity {
                 if (resRoom.getString(2).equals("1")) ligths.setChecked(true);
                 if (resRoom.getString(3).equals("1")) ligths.setChecked(true);
                 temp.setProgress(resRoom.getInt(4));
-                tempNumber.setText(Integer.toString(resRoom.getInt(4)));;
+                tempNumber.setText(Integer.toString(resRoom.getInt(4))+  (char) 0x00B0);
             }
         }
         if (found == false) {
@@ -75,7 +75,7 @@ public class userRoomControl extends AppCompatActivity {
         temp.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 roomData.updateData(currentRoom.getText().toString(), ligths.isChecked(), lock.isChecked(),progress);
-                tempNumber.setText(Integer.toString(progress));
+                tempNumber.setText(Integer.toString(progress) +  (char) 0x00B0);
             }
 
             @Override

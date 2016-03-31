@@ -49,7 +49,7 @@ public class userRoomSelection extends AppCompatActivity {
             }
         }
 
-        ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, R.layout.custom_listview, allRooms);
+        ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, R.layout.customuser_listview, allRooms);
         listView.setAdapter(listAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

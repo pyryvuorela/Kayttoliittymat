@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -62,6 +63,9 @@ public class adminUserControl extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), adminAddUser.class));
             }
         });
+        getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN
+        );
     }
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();

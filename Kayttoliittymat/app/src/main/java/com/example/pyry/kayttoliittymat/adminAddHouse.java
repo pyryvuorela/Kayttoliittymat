@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -115,6 +116,9 @@ public class adminAddHouse extends AppCompatActivity {
                 showMessage("Data", buffer.toString());
             }
         });
+        getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN
+        );
     }
 
     public void showMessage(String title, String message){
@@ -132,4 +136,5 @@ public class adminAddHouse extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

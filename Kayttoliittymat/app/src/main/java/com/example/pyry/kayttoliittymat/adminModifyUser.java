@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -91,24 +92,24 @@ public class adminModifyUser extends AppCompatActivity {
                     Toast.makeText(adminModifyUser.this, "House selected", Toast.LENGTH_SHORT).show();
                 }
             }
-            });
+        });
 
             modifyUsers.setOnClickListener(new View.OnClickListener()
 
-            {
-                public void onClick (View view){
-                if (currenUser == null || username.getText().toString().equals("") || password.getText().toString().equals("") || userHouses.get(0).equals("")) {
-                    Toast.makeText(adminModifyUser.this, "Fill all the fields", Toast.LENGTH_SHORT).show();
-                } else {
-                    boolean isUpdated = userData.updateData(currenUser, username.getText().toString(), password.getText().toString(), userHouses.get(0), userHouses.get(1));
-                    if (isUpdated == true) {
-                        Toast.makeText(adminModifyUser.this, "Data Updated", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(getApplicationContext(), adminUserControl.class));
-                    } else
-                        Toast.makeText(adminModifyUser.this, "Data not Updated", Toast.LENGTH_SHORT).show();
-                }
-            }
-            }
+                                           {
+                                               public void onClick(View view) {
+                                                   if (currenUser == null || username.getText().toString().equals("") || password.getText().toString().equals("") || userHouses.get(0).equals("")) {
+                                                       Toast.makeText(adminModifyUser.this, "Fill all the fields", Toast.LENGTH_SHORT).show();
+                                                   } else {
+                                                       boolean isUpdated = userData.updateData(currenUser, username.getText().toString(), password.getText().toString(), userHouses.get(0), userHouses.get(1));
+                                                       if (isUpdated == true) {
+                                                           Toast.makeText(adminModifyUser.this, "Data Updated", Toast.LENGTH_SHORT).show();
+                                                           startActivity(new Intent(getApplicationContext(), adminUserControl.class));
+                                                       } else
+                                                           Toast.makeText(adminModifyUser.this, "Data not Updated", Toast.LENGTH_SHORT).show();
+                                                   }
+                                               }
+                                           }
 
             );
             deleteUser.setOnClickListener(new View.OnClickListener()
@@ -136,6 +137,9 @@ public class adminModifyUser extends AppCompatActivity {
             }
 
             );
+        getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN
+        );
         }
 
     public boolean onOptionsItemSelected(MenuItem item) {

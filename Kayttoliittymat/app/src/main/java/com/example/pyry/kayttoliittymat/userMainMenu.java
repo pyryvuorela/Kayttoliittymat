@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -21,7 +22,7 @@ public class userMainMenu extends AppCompatActivity {
     UserDatabase userDatabase;
     ListView listView;
     String currentUser;
-
+    Button logOut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class userMainMenu extends AppCompatActivity {
 
         userDatabase = new UserDatabase(this);
         listView = (ListView) findViewById(R.id.userMainMenuListView);
+        logOut = (Button) findViewById(R.id.logoutUserID);
         Cursor resUser = userDatabase.getAllData();
         final List<String> allHouses = new ArrayList<String>();
 
@@ -44,10 +46,11 @@ public class userMainMenu extends AppCompatActivity {
         while(resUser.moveToNext()){
             if(currentUser.equals(resUser.getString(1))){
                 allHouses.add(resUser.getString(3));
+                allHouses.add(resUser.getString(4));
             }
         }
 
-        ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, R.layout.custom_listview, allHouses);
+        ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, R.layout.customuser_listview, allHouses);
         listView.setAdapter(listAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -60,6 +63,11 @@ public class userMainMenu extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        logOut.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            }
+        });
     }
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -68,6 +76,5 @@ public class userMainMenu extends AppCompatActivity {
             return  true;
         }
         return super.onOptionsItemSelected(item);
-
     }
 }
