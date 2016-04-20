@@ -21,6 +21,7 @@ public class userRoomControl extends AppCompatActivity {
     Switch lock;
     SeekBar temp;
     RoomDatabase roomData;
+    HouseDatabase houseDatabase;
     TextView tempNumber;
     String currentUser;
     String currentHouse;
@@ -32,6 +33,7 @@ public class userRoomControl extends AppCompatActivity {
         setSupportActionBar(toolbar);
         currentRoom = (TextView) findViewById(R.id.userRoomControlRoomname);
         roomData = new RoomDatabase(this);
+        houseDatabase = new HouseDatabase(this);
         Cursor resRoom = roomData.getAllData();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -47,34 +49,37 @@ public class userRoomControl extends AppCompatActivity {
             currentRoom.setText(extras.getString("roomname"));
             currentHouse = extras.getString("housename");
             currentUser = extras.getString("username");
-
+            if(extras.getString("light").equals("1")){} else ligths.setVisibility(View.GONE);
+            if(extras.getString("lock").equals("1")){} else lock.setVisibility(View.GONE);
+            if(extras.getString("temp").equals("1")){} else temp.setVisibility(View.GONE);
         }
+
         Boolean found = false;
         while (resRoom.moveToNext()) {
             if (currentRoom.getText().toString().equals(resRoom.getString(1))) {
                 found = true;
                 if (resRoom.getString(2).equals("1")) ligths.setChecked(true);
-                if (resRoom.getString(3).equals("1")) ligths.setChecked(true);
+                if (resRoom.getString(3).equals("1")) lock.setChecked(true);
                 temp.setProgress(resRoom.getInt(4));
-                tempNumber.setText(Integer.toString(resRoom.getInt(4))+  (char) 0x00B0);
+                tempNumber.setText(Integer.toString(resRoom.getInt(4)) + (char) 0x00B0);
             }
         }
         if (found == false) {
-            roomData.insertData(currentRoom.getText().toString(), false, false, 0);
+            roomData.insertData(currentRoom.getText().toString(), false, false, 0, currentHouse);
         }
         ligths.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-               roomData.updateData(currentRoom.getText().toString(), ligths.isChecked(), lock.isChecked(), temp.getProgress());
+               roomData.updateData(currentRoom.getText().toString(), ligths.isChecked(), lock.isChecked(), temp.getProgress(), currentHouse);
             }
         });
         lock.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                roomData.updateData(currentRoom.getText().toString(), ligths.isChecked(), lock.isChecked(), temp.getProgress());
+                roomData.updateData(currentRoom.getText().toString(), ligths.isChecked(), lock.isChecked(), temp.getProgress(), currentHouse);
             }
     });
         temp.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                roomData.updateData(currentRoom.getText().toString(), ligths.isChecked(), lock.isChecked(),progress);
+                roomData.updateData(currentRoom.getText().toString(), ligths.isChecked(), lock.isChecked(),progress, currentHouse);
                 tempNumber.setText(Integer.toString(progress) +  (char) 0x00B0);
             }
 

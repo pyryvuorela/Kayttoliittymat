@@ -49,7 +49,7 @@ public class userRoomSelection extends AppCompatActivity {
             }
         }
 
-        ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, R.layout.customuser_listview, allRooms);
+        ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, R.layout.customuserroom_listview, allRooms);
         listView.setAdapter(listAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -57,6 +57,36 @@ public class userRoomSelection extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String room = String.valueOf(parent.getItemAtPosition(position));
                 Intent i = new Intent(getApplicationContext(), userRoomControl.class);
+                Cursor house = houseDatabase.getAllData();
+                while(house.moveToNext()){
+                    if(currentHouse.equals(house.getString(1))){
+                        if(house.getString(14).equals(room)){
+                            if(house.getString(3).equals("1"))i.putExtra("light", "1");
+                            else i.putExtra("light", "0");
+                            if(house.getString(4).equals("1"))i.putExtra("lock", "1");
+                            else i.putExtra("lock", "0");
+                            if(house.getString(5).equals("1"))i.putExtra("temp", "1");
+                            else i.putExtra("temp", "0");
+                        }
+                        else if(house.getString(15).equals(room)){
+                            if(house.getString(7).equals("1"))i.putExtra("light", "1");
+                            else i.putExtra("light", "0");
+                            if(house.getString(8).equals("1"))i.putExtra("lock", "1");
+                            else i.putExtra("lock", "0");
+                            if(house.getString(9).equals("1"))i.putExtra("temp", "1");
+                            else i.putExtra("temp", "0");
+                        }
+                        else if(house.getString(16).equals(room)){
+                            if(house.getString(11).equals("1"))i.putExtra("light", "1");
+                            else i.putExtra("light", "0");
+                            if(house.getString(12).equals("1"))i.putExtra("lock", "1");
+                            else i.putExtra("lock", "0");
+                            if(house.getString(13).equals("1"))i.putExtra("temp", "1");
+                            else i.putExtra("temp", "0");
+                        }
+                    }
+                }
+
                 i.putExtra("roomname", room);
                 i.putExtra("housename", currentHouse);
                 i.putExtra("username", currentUser);

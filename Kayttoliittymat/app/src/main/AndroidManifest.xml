@@ -59,11 +59,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".userRoomSelection"
-            android:label="@string/title_activity_user_room_selection"
+            android:label=""
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".userRoomControl"
-            android:label="@string/title_activity_user_room_control"
+            android:label=""
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

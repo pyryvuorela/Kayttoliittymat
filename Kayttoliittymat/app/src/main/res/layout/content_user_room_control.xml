@@ -36,10 +36,12 @@
         android:layout_below="@+id/userRoomControlRoomname"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="50dp" />
+        android:visibility="visible"
+        android:layout_marginTop="30dp" />
     <Switch
         android:layout_width="fill_parent"
         android:layout_height="100dp"
+        android:visibility="visible"
         android:text="LOCK"
         android:textAlignment="center"
         android:id="@+id/userRoomControlLock"
@@ -56,6 +58,7 @@
         android:id="@+id/userRoomControlTemp"
         android:layout_below="@+id/userRoomControlLock"
         android:layout_centerHorizontal="true"
+        android:visibility="visible"
         android:layout_marginTop="50dp"
         android:backgroundTint="#ffffff" />
 
@@ -66,6 +69,7 @@
         android:text=""
         android:textSize="30dp"
         android:id="@+id/userRoomControltempnumber"
+        android:visibility="visible"
         android:textColor="#ffffff"
         android:layout_below="@+id/userRoomControlTemp"
         android:layout_centerHorizontal="true"

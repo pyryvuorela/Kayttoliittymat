@@ -43,7 +43,6 @@ public class adminAddUser extends AppCompatActivity {
 
         userData = new UserDatabase(this);
         houseDatabase = new HouseDatabase(this);
-        usersSelectedHouses = new ArrayList<String>();
 
         username = (EditText) findViewById(R.id.addUsernameID);
         password = (EditText) findViewById(R.id.addPasswordID);
@@ -71,12 +70,10 @@ public class adminAddUser extends AppCompatActivity {
                 if (primaryHouse.getText().toString().equals("")) {
                     String house = String.valueOf(parent.getItemAtPosition(position));
                     primaryHouse.setText(house);
-                    usersSelectedHouses.add(house);
                     Toast.makeText(adminAddUser.this, "House selected", Toast.LENGTH_SHORT).show();
                 } else if (secondaryHouse.getText().toString().equals("")) {
                     String house = String.valueOf(parent.getItemAtPosition(position));
                     secondaryHouse.setText(house);
-                    usersSelectedHouses.add(house);
                     Toast.makeText(adminAddUser.this, "House selected", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -84,7 +81,7 @@ public class adminAddUser extends AppCompatActivity {
 
         save.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                boolean isInserted = userData.insertData(username.getText().toString(), password.getText().toString(), usersSelectedHouses.get(0), usersSelectedHouses.get(1));
+                boolean isInserted = userData.insertData(username.getText().toString(), password.getText().toString(), primaryHouse.getText().toString(), secondaryHouse.getText().toString());
                 if (isInserted == true) {
                     Toast.makeText(adminAddUser.this, "Data Inserted", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(getApplicationContext(), adminUserControl.class));

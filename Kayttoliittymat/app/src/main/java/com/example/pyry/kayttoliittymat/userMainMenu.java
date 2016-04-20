@@ -20,9 +20,10 @@ import java.util.List;
 
 public class userMainMenu extends AppCompatActivity {
     UserDatabase userDatabase;
-    ListView listView;
     String currentUser;
     Button logOut;
+    Button house1;
+    Button house2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +32,10 @@ public class userMainMenu extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         userDatabase = new UserDatabase(this);
-        listView = (ListView) findViewById(R.id.userMainMenuListView);
         logOut = (Button) findViewById(R.id.logoutUserID);
+        house1 = (Button) findViewById(R.id.userMAinMenuHouse1);
+        house2 = (Button) findViewById(R.id.userMAinMenuHouse2);
         Cursor resUser = userDatabase.getAllData();
         final List<String> allHouses = new ArrayList<String>();
 
@@ -45,36 +45,38 @@ public class userMainMenu extends AppCompatActivity {
         }
         while(resUser.moveToNext()){
             if(currentUser.equals(resUser.getString(1))){
-                allHouses.add(resUser.getString(3));
-                allHouses.add(resUser.getString(4));
+                if(resUser.getString(3).equals("")){
+                    house1.setVisibility(View.INVISIBLE);
+                } else house1.setText(resUser.getString(3));
+                if(resUser.getString(4).equals("")){
+                    house2.setVisibility(View.INVISIBLE);
+                } else house2.setText(resUser.getString(4));
+
             }
         }
 
-        ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, R.layout.customuser_listview, allHouses);
-        listView.setAdapter(listAdapter);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String house = String.valueOf(parent.getItemAtPosition(position));
+        logOut.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            }
+        });
+        house1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                String house = house1.getText().toString();
                 Intent i = new Intent(getApplicationContext(), userRoomSelection.class);
                 i.putExtra("housename", house);
                 i.putExtra("username", currentUser);
                 startActivity(i);
             }
         });
-        logOut.setOnClickListener(new View.OnClickListener() {
+        house2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            }
+                String house = house2.getText().toString();
+                Intent i = new Intent(getApplicationContext(), userRoomSelection.class);
+                i.putExtra("housename", house);
+                i.putExtra("username", currentUser);
+                startActivity(i);            }
         });
-    }
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == android.R.id.home) {
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            return  true;
-        }
-        return super.onOptionsItemSelected(item);
+
     }
 }
